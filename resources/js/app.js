@@ -18,12 +18,18 @@ import Example from './components/Example';
 import Home from './pages/Home';
 import { render } from 'react-dom';
 import React from 'react';
-import Navbar from './UI/Navbar';
+import Navbar from './UI/Navbar/Navbar';
+import Navitem from './UI/Navbar/Navitem';
+import css from './../css/app.css';
 
 function App() {
     return(
         <>
-            <Navbar />
+            <Navbar>
+                <Navitem link="#" text="Home" />
+                <Navitem link="#" text="About us" />
+                <Navitem link="#" text="Login" />
+            </Navbar>
             <Home />
         </>
     );
