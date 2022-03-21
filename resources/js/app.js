@@ -18,10 +18,12 @@ import Example from './components/Example';
 import Home from './pages/Home';
 import { render } from 'react-dom';
 import React from 'react';
+import Navbar from './components/Navbar';
 
 function App() {
     return(
         <>
+            <Navbar />
             <Home />
         </>
     );
