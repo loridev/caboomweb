@@ -1,0 +1,49 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.navbar > .logo {
+    font-size: 1.8rem;
+    color: white;
+    padding-left: 20px;
+}
+
+.links {
+    position: fixed;
+    width: 94vw;
+    top: 5rem;
+    left: 18px;
+    background-color: blue;
+}
+
+.links a {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.links a:hover {
+    background-color: lightcoral;
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .links {
+        display: block;
+        position: static;
+        width: auto;
+        margin-right: 20px;
+        background: none;
+    }
+
+    .links a {
+        display: inline-block;
+        padding: 15px 20px;
+    }
+}
