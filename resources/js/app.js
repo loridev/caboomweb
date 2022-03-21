@@ -18,9 +18,12 @@ import Example from './components/Example';
 import Home from './pages/Home';
 import { render } from 'react-dom';
 import React from 'react';
+
 function App() {
     return(
-        <Home />
+        <>
+            <Home />
+        </>
     );
 }
 
