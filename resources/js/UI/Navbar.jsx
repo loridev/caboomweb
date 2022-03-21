@@ -1,6 +1,6 @@
 function Navbar() {
     return (
-
+        <p>hola</p>
     );
 }
 

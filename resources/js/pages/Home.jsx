@@ -1,8 +1,10 @@
+import Background from "../components/Background";
+
 function Home() {
     return (
-        <div>
-            Buenas ttarde
-        </div>
+        <Background>
+            <h1>CARLOS EL BOMBAS</h1>
+        </Background>
     );
 }
 

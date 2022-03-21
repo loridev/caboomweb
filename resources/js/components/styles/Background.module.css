@@ -1,0 +1,9 @@
+.background {
+	background-image: url(https://empresiona.com/wp-content/uploads/2019/02/guillermo-sanchez-529739-unsplash-2.jpg);
+    background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+    height: 80vw;
+    background-color: rgba(0,0,0,0.8);
+    filter:brightness(0.5);
+}
