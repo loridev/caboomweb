@@ -5604,6 +5604,33 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/Background.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/Background.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _styles_Background_module_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/Background.module.css */ "./resources/js/components/styles/Background.module.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Background(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "clase",
+    children: props.children
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Background);
+
+/***/ }),
+
 /***/ "./resources/js/components/Example.jsx":
 /*!*********************************************!*\
   !*** ./resources/js/components/Example.jsx ***!
@@ -5662,12 +5689,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Background__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Background */ "./resources/js/components/Background.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 function Home() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "Buenas ttarde"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_components_Background__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+      children: "CARLOS EL BOMBAS"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      children: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat possimus deserunt et tenetur? Doloremque, commodi ipsa. Saepe illo placeat optio ex voluptatum, ducimus doloremque esse dolorum sunt, accusantium aliquam modi iste itaque molestiae cum aut aperiam nulla eos quidem necessitatibus. Accusamus illo dolor quas molestias, pariatur hic sit facilis nulla dolore? Suscipit sequi veniam aperiam ab nostrum id modi facere fugit magnam vel aut officia earum, laboriosam placeat soluta commodi minus, nihil expedita quam dicta, eveniet reprehenderit. Repellendus quas itaque alias reprehenderit nisi ullam? Earum, recusandae aliquid molestiae quibusdam reprehenderit animi. Assumenda exercitationem delectus veniam iure maxime rem velit dolore, tempore animi ullam, quia architecto enim fugiat hic! Dolores, quaerat nam alias maxime sed, sit debitis asperiores, voluptates tempore porro nobis et saepe fugiat culpa atque amet officiis temporibus sint expedita. Fugiat, ut! At fugit autem quam inventore voluptatum quod repudiandae temporibus hic animi ea dolorem voluptas ipsum nobis consectetur minima soluta laborum esse quas, blanditiis atque aperiam suscipit sit. Natus beatae alias doloremque nam ipsum modi dolor aperiam, laboriosam enim totam temporibus labore voluptates cumque voluptatum perferendis culpa ratione, voluptatibus non veniam vel consectetur, ducimus eaque. Culpa quis illo repudiandae ducimus asperiores illum voluptatem quisquam, eligendi, reiciendis quod laborum voluptate animi accusamus voluptas! Fugit ipsum excepturi, est ipsa repellat neque quidem eligendi. Explicabo ipsa ea incidunt pariatur numquam iste quos asperiores corrupti, nostrum perspiciatis architecto natus, consectetur dolore vitae quas non reiciendis nulla qui illum omnis magni fugiat facere velit culpa? Cupiditate sequi omnis quam cumque dolorem totam quasi? Ratione veniam sunt consequatur beatae. Velit, tempora, provident rem modi nam beatae alias quod fugiat illo iste adipisci quibusdam repellendus earum dignissimos iure at qui impedit explicabo, labore laborum aperiam! Recusandae totam asperiores voluptates doloremque temporibus unde officiis! Aliquid adipisci perspiciatis voluptatum ab voluptatem sint eius nisi porro! Facilis et magnam eveniet minus quaerat inventore ea harum non nulla odit, dolorem fugiat? Porro doloremque cupiditate animi sint optio culpa error soluta aperiam repellendus, qui laborum ratione rem fugiat officiis corporis, iusto ex! Minima culpa doloribus sed quidem saepe qui doloremque rerum fuga at maxime. Distinctio nostrum obcaecati perferendis. Suscipit maxime porro, ratione ut sunt, iure pariatur corrupti sed adipisci earum mollitia facilis. Quae nobis eligendi possimus blanditiis similique fugiat deserunt necessitatibus aliquid non iusto! Accusamus, reprehenderit. Doloribus eaque molestiae iusto temporibus iure neque tenetur autem corrupti exercitationem! Velit, ut. Ut excepturi minus, natus reprehenderit quam consequatur illum temporibus a harum dolore iste quis maiores autem non nesciunt sunt, soluta beatae ratione perferendis modi. Aut eaque optio in reprehenderit repellendus doloribus nemo quisquam nostrum, amet atque vitae aliquam rem accusantium commodi molestiae ratione? Recusandae voluptas, sit magni dolore impedit aperiam totam odit asperiores nulla eveniet maxime velit culpa temporibus mollitia magnam iste quo fugit eum alias pariatur cupiditate soluta itaque laudantium sunt. Et aut dicta nisi natus aspernatur quia corrupti minima necessitatibus officia eius eligendi consequatur explicabo reiciendis sint, porro itaque earum tempora! Aut reprehenderit nulla consequuntur perferendis officia rerum, vero quod dolores odio nobis qui iure aspernatur, quaerat odit nihil dolore, commodi quam quibusdam? Quisquam exercitationem sed animi, hic, repellendus temporibus distinctio earum doloribus qui deleniti veniam ipsa eum! Eaque dolorum optio ipsum laborum aliquam atque at cumque corporis veritatis, enim voluptatibus illum aspernatur unde nihil eum voluptas in ab vitae. Eum dolores ex iusto excepturi eaque? Est quae, harum exercitationem dolore veritatis saepe, cupiditate ex consequatur commodi eos eum accusantium vitae minus maiores repudiandae atque voluptatem dolorem dolorum delectus iure cum placeat, optio reiciendis nam? Distinctio exercitationem quaerat, doloribus quos voluptas enim magni asperiores, ratione ut ea repellat repudiandae incidunt vel laboriosam, facilis optio quia nisi itaque facere nam fugiat aperiam voluptates aut recusandae. Consequatur, quas. Vitae facilis ad dolorum autem qui corporis inventore sint cupiditate praesentium odit blanditiis nihil accusamus fugit rem ducimus illum, atque repudiandae a similique mollitia modi impedit earum officiis! Ut magni aperiam officiis amet, perspiciatis quo perferendis nulla! Nemo quaerat eaque officia qui cupiditate sit ipsa molestiae eligendi dicta excepturi odit aspernatur architecto natus unde eveniet odio, ullam debitis delectus repellendus nam accusamus provident tempore! Harum non, repellendus porro sed in veritatis suscipit quasi aliquam architecto veniam quae dolorem! Officia quaerat, veniam vel vero debitis amet sit consectetur quibusdam ut distinctio maxime rerum minima nam in aliquid molestias dolorem. Obcaecati debitis quaerat, nihil accusamus sint perspiciatis magnam earum nesciunt autem dignissimos eligendi vero odio eveniet repellendus, rem est voluptate, quo saepe quia placeat harum modi! Ullam optio deleniti harum dolore. Soluta quis quidem iure nihil illum iusto beatae eaque voluptatem corporis. At nostrum et eligendi ratione sapiente, temporibus, doloribus illo tempora voluptas porro, voluptatem autem corporis eos? Explicabo harum exercitationem, amet magnam in unde odit eos maxime ratione illo, quam quaerat consequatur magni quod minus dolorum! Mollitia tempore beatae impedit perferendis consectetur accusamus optio aperiam sapiente accusantium at quidem, praesentium voluptatum, quaerat eum. Consectetur sunt, nam minus iure illum ipsam eum qui mollitia eveniet, quos itaque autem, eligendi expedita at. Esse dolor eveniet mollitia qui eaque earum. Dolores, praesentium alias. Fugiat non aliquam provident sunt quia odit quo adipisci pariatur rerum, praesentium velit eaque veniam beatae. Quod animi incidunt necessitatibus beatae, vel voluptas doloremque earum. Vel amet voluptate ducimus saepe architecto ab animi cupiditate quis? Similique cum corporis at ea non vero unde velit atque, tempora amet! Dicta quia laborum quis voluptates adipisci molestias fugit nesciunt velit, perspiciatis cumque consequuntur pariatur est, quo doloribus, recusandae accusantium? Officia ducimus at, possimus mollitia ab iste dolore voluptates quasi aliquid adipisci beatae debitis dolor facere, porro saepe. Harum, ullam sapiente, dolor sed molestiae dignissimos iure, optio facere quos eveniet cum! Dolores corrupti illum tenetur vitae et at, tempore, necessitatibus, deserunt iusto labore rerum adipisci quaerat laborum provident blanditiis dolore alias quidem nihil vero. Maxime, architecto. Provident voluptatibus quas cumque reiciendis explicabo autem minima commodi ipsum aperiam quaerat ratione ullam dolorem, quidem voluptate sint quasi. Nihil voluptatibus quaerat tempore culpa beatae velit quisquam mollitia dolor optio quidem? Consequuntur voluptates magnam mollitia voluptate dolore eligendi. Eos numquam id reiciendis culpa, ad libero dolor amet suscipit illo excepturi eius? Inventore?"
+    })]
   });
 }
 
@@ -10743,7 +10777,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Wv3PRwtVo2kYXz4eq2-W0A\\=\\= {\n    padding-right: 20px;\n    cursor: pointer;\n}\n\n.Wv3PRwtVo2kYXz4eq2-W0A\\=\\= > span {\n    display: block;\n    width: 40px;\n    height: 5px;\n    margin-bottom: 10px;\n    background-color: black;\n}\n\n@media screen and (min-width: 600px) {\n    .Wv3PRwtVo2kYXz4eq2-W0A\\=\\= {\n        display: none;\n    }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Wv3PRwtVo2kYXz4eq2-W0A\\=\\= {\n    padding-right: 20px;\n    cursor: pointer;\n}\n\n.Wv3PRwtVo2kYXz4eq2-W0A\\=\\= > span {\n    display: block;\n    width: 40px;\n    height: 5px;\n    margin-bottom: 10px;\n    background-color: white;\n}\n\n@media screen and (min-width: 600px) {\n    .Wv3PRwtVo2kYXz4eq2-W0A\\=\\= {\n        display: none;\n    }\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"hamburger": "Wv3PRwtVo2kYXz4eq2-W0A=="
@@ -10770,13 +10804,40 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".XMJunjBA34Ef8pCkGoMjnw\\=\\= {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding-top: 20px;\n}\n\n.XMJunjBA34Ef8pCkGoMjnw\\=\\= > .inUNh\\+fAoZaDZoyTa8xhMA\\=\\= {\n    font-size: 1.8rem;\n    color: white;\n    padding-left: 20px;\n}\n\n.FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= {\n    position: fixed;\n    width: 94vw;\n    top: 5rem;\n    left: 18px;\n    background-color: blue;\n}\n\n.FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= a {\n    display: block;\n    text-align: center;\n    padding: 10px 0;\n}\n\n.FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= a:hover {\n    background-color: lightcoral;\n}\n\n.BInEpyrcKVuZIZQin8e5VA\\=\\= {\n    display: none;\n}\n\n@media screen and (min-width: 600px) {\n    .FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= {\n        display: block;\n        position: static;\n        width: auto;\n        margin-right: 20px;\n        background: none;\n    }\n\n    .FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= a {\n        display: inline-block;\n        padding: 15px 20px;\n    }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".XMJunjBA34Ef8pCkGoMjnw\\=\\= {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding-top: 20px;\n    background-color: black;\n}\n\n.XMJunjBA34Ef8pCkGoMjnw\\=\\= > .inUNh\\+fAoZaDZoyTa8xhMA\\=\\= {\n    font-size: 1.8rem;\n    color: white;\n    padding-left: 20px;\n}\n\n.FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= {\n    position: fixed;\n    width: 100vw;\n    top: 4.05rem;\n    background-color: #222222;\n    overflow: hidden;\n    transition: 250ms height ease-in-out;\n}\n\n.FiKbuHYl\\+tMN5hey0Dy7kA\\=\\=:not(.BInEpyrcKVuZIZQin8e5VA\\=\\=) {\n    height: 19vh;\n}\n\n.FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= a {\n    display: block;\n    text-align: center;\n    padding: 10px 0;\n    color: white;\n}\n\n.FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= a:hover {\n    background-color: white;\n    color: black;\n}\n\n.BInEpyrcKVuZIZQin8e5VA\\=\\= {\n    height: 0;\n}\n\n@media screen and (min-width: 600px) {\n    .XMJunjBA34Ef8pCkGoMjnw\\=\\= {\n        justify-content: space-between;\n        padding-top: 0;\n    }\n    .FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= {\n        height: auto;\n        background-color: black;\n        display: block;\n        position: static;\n        width: auto;\n        margin-right: 20px;\n        background: none;\n    }\n\n    .FiKbuHYl\\+tMN5hey0Dy7kA\\=\\= a {\n        display: inline-block;\n        padding: 15px 20px;\n    }\n\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"navbar": "XMJunjBA34Ef8pCkGoMjnw==",
 	"logo": "inUNh+fAoZaDZoyTa8xhMA==",
 	"links": "FiKbuHYl+tMN5hey0Dy7kA==",
 	"hide": "BInEpyrcKVuZIZQin8e5VA=="
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/styles/Background.module.css":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/styles/Background.module.css ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".X8fw-my878MdDbXz6o6\\+Mw\\=\\= {\r\n\tbackground-image: url(https://empresiona.com/wp-content/uploads/2019/02/guillermo-sanchez-529739-unsplash-2.jpg);\r\n    background-position: center center;\r\n\tbackground-size: cover;\r\n\tbackground-repeat: no-repeat;\r\n    height: 80vw;\r\n    background-color: rgba(0,0,0,0.8);\r\n    filter:brightness(0.5);\r\n}", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"background": "X8fw-my878MdDbXz6o6+Mw=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -59433,6 +59494,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Navbar_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/components/styles/Background.module.css":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/styles/Background.module.css ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Background_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./Background.module.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/styles/Background.module.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Background_module_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Background_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

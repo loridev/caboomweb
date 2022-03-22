@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
+    background-color: black;
 }
 
 .navbar > .logo {
@@ -13,28 +14,41 @@
 
 .links {
     position: fixed;
-    width: 94vw;
-    top: 5rem;
-    left: 18px;
-    background-color: blue;
+    width: 100vw;
+    top: 4.05rem;
+    background-color: #222222;
+    overflow: hidden;
+    transition: 250ms height ease-in-out;
+}
+
+.links:not(.hide) {
+    height: 19vh;
 }
 
 .links a {
     display: block;
     text-align: center;
     padding: 10px 0;
+    color: white;
 }
 
 .links a:hover {
-    background-color: lightcoral;
+    background-color: white;
+    color: black;
 }
 
 .hide {
-    display: none;
+    height: 0;
 }
 
 @media screen and (min-width: 600px) {
+    .navbar {
+        justify-content: space-between;
+        padding-top: 0;
+    }
     .links {
+        height: auto;
+        background-color: black;
         display: block;
         position: static;
         width: auto;
@@ -46,4 +60,5 @@
         display: inline-block;
         padding: 15px 20px;
     }
+
 }
