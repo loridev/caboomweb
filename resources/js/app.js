@@ -21,11 +21,13 @@ import React from 'react';
 import Navbar from './UI/Navbar/Navbar';
 import NavLink from './UI/Navbar/NavLink';
 import css from './../css/app.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import NotFound from './pages/NotFound';
 
 function App() {
     const LINKS = [
         {
-            to: '#home',
+            to: '/',
             text: 'Home'
         },
         {
@@ -40,11 +42,9 @@ function App() {
         },
     ]
     return(
-        <>
-            <Navbar>
-                {LINKS.map((link) => <NavLink to={link.to} text={link.text} key={link.text} />)}
-            </Navbar>
-        </>
+        <Navbar>
+            {LINKS.map((link) => <NavLink to={link.to} text={link.text} key={link.text} />)}
+        </Navbar>
     );
 }
 
@@ -54,7 +54,13 @@ if (document.getElementById('root')) {
     render(
         (
             <React.StrictMode>
-                <App />
+                <BrowserRouter>
+                    <App />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </BrowserRouter>
             </React.StrictMode>
         ),
         document.getElementById('root')

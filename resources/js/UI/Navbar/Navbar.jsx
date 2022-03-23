@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 // import { ReactComponent as Logo } from "/images/logo.svg";
 // import { ReactComponent as HamIcon } from "/images/hamburger.svg";
 // import { ReactComponent as CloseIcon } from "/images/close.svg";
@@ -16,9 +17,9 @@ function Navbar(props) {
         <div className={classes.header}>
             <div className={classes.logoNav}>
                 <div className={classes.logoContainer}>
-                    <a href="/">
+                    <Link to="/">
                         <img src="/images/logo.svg" className={classes.logo} />
-                    </a>
+                    </Link>
                 </div>
             </div>
             <ul onClick={closeMenu} 
