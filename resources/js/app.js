@@ -19,18 +19,31 @@ import Home from './pages/Home';
 import { render } from 'react-dom';
 import React from 'react';
 import Navbar from './UI/Navbar/Navbar';
-import Navitem from './UI/Navbar/Navitem';
+import NavLink from './UI/Navbar/NavLink';
 import css from './../css/app.css';
 
 function App() {
+    const LINKS = [
+        {
+            to: '#home',
+            text: 'Home'
+        },
+        {
+            to: '#aboutus',
+            text: 'About us'
+        },        {
+            to: '#contact',
+            text: 'Contact'
+        },        {
+            to: '#signin',
+            text: 'Sign in'
+        },
+    ]
     return(
         <>
             <Navbar>
-                <Navitem link="#" text="Home" />
-                <Navitem link="#" text="About us" />
-                <Navitem link="#" text="Login" />
+                {LINKS.map((link) => <NavLink to={link.to} text={link.text} key={link.text} />)}
             </Navbar>
-            <Home />
         </>
     );
 }

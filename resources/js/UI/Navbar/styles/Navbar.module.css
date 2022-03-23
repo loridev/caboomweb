@@ -1,64 +1,86 @@
-.navbar {
+.header {
     display: flex;
+    background: linear-gradient(#0c0c0c, #2e2e2e);
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
-    background-color: black;
+    padding: 0px 40px;
+    height: 80px;
 }
 
-.navbar > .logo {
-    font-size: 1.8rem;
-    color: white;
-    padding-left: 20px;
+.logoNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.links {
-    position: fixed;
-    width: 100vw;
-    top: 4.05rem;
-    background-color: #222222;
-    overflow: hidden;
-    transition: 250ms height ease-in-out;
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.links:not(.hide) {
-    height: 19vh;
+.logo {
+    width: 45px;
+    height: 45px;
+    fill: white;
 }
 
-.links a {
-    display: block;
-    text-align: center;
-    padding: 10px 0;
-    color: white;
+.navOptions {
+    padding-left: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 50px;
+    list-style-type: none;
 }
 
-.links a:hover {
-    background-color: white;
-    color: black;
+.mobileMenu {
+    display: none;
 }
 
-.hide {
-    height: 0;
-}
-
-@media screen and (min-width: 600px) {
-    .navbar {
-        justify-content: space-between;
-        padding-top: 0;
+@media (max-width: 648px) {
+    .header {
+        padding: 0px 10px;
     }
-    .links {
-        height: auto;
-        background-color: black;
+
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .navOptions {
+        display: flex;
+        width: 100%;
+        height: 350px;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+        flex-direction: column;
+        list-style-type: none;
+        grid-gap: 0px;
+    }
+
+    .navOptions.active {
+        background: #9899d1;
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+        align-content: center;
+        padding-left: 0px;
+    }
+
+    .navIcon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navIcon img {
+        fill: white;
+    }
+
+    .mobileMenu {
         display: block;
-        position: static;
-        width: auto;
-        margin-right: 20px;
-        background: none;
     }
-
-    .links a {
-        display: inline-block;
-        padding: 15px 20px;
-    }
-
 }
