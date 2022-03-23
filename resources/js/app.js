@@ -23,6 +23,7 @@ import NavLink from './UI/Navbar/NavLink';
 import css from './../css/app.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
 
 function App() {
     const LINKS = [
@@ -31,14 +32,14 @@ function App() {
             text: 'Home'
         },
         {
-            to: '#aboutus',
-            text: 'About us'
+            to: '/rankings',
+            text: 'Rankings'
         },        {
-            to: '#contact',
-            text: 'Contact'
+            to: '/shop',
+            text: 'Shop'
         },        {
-            to: '#signin',
-            text: 'Sign in'
+            to: '/login',
+            text: 'Log in'
         },
     ]
     return(
@@ -58,6 +59,7 @@ if (document.getElementById('root')) {
                     <App />
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path='/login' element={<Login />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>
