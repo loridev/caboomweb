@@ -21,5 +21,11 @@ function useFetch() {
         } catch (err) {
             setError(err.message || 'There was an error');
         }
-    })
+    }, []);
+
+    return {
+        isLoading,
+        error,
+        sendRequest,
+    };
 }
