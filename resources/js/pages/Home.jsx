@@ -1,9 +1,8 @@
-import Background from "../components/Background";
+import Background from "../components/Background/Background";
 
 function Home() {
     return (
-        <Background>
-        </Background>
+        <Background text="CARLOS EL BOMBAS" src="/videos/mapache.mp4" buttonText="Try Now"/>
     );
 }
 
