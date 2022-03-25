@@ -10889,7 +10889,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    font-family: sans-serif;\n    background-color: #222222;\n    color: white;\n}\n\na {\n    text-decoration: none;\n    color: white;\n    font-size: 1.2rem;\n    font-weight: bold;\n    text-transform: uppercase;\n}\n\n.container {\n    width: 1024px;\n    margin: 0 auto;\n}\n\n@media (max-width: 648px) {\n    .container {\n        width: 95vw;\n    }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n    --main-color: #AF22A5;\n    --background-color: #222222; \n}\n\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    font-family: sans-serif;\n    background-color: var(--background-color);\n    color: white;\n}\n\na {\n    text-decoration: none;\n    color: white;\n    font-size: 1.2rem;\n    font-weight: bold;\n    text-transform: uppercase;\n}\n\n.container {\n    width: 1024px;\n    margin: 0 auto;\n}\n\n@media (max-width: 648px) {\n    .container {\n        width: 95vw;\n    }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10913,7 +10913,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".rjT-1tKHBpXYFAQRzhA8Lg\\=\\= {\n    display: inline-block;\n    border-radius: 4px;\n    background-color: #DB22FA;\n    border: none;\n    color: #FFFFFF;\n    text-align: center;\n    font-size: 28px;\n    padding: 20px;\n    width: 200px;\n    transition: all 0.5s;\n    cursor: pointer;\n    margin: 5px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span {\n    cursor: pointer;\n    display: inline-block;\n    position: relative;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span:after {\n    content: '\\00bb';\n    position: absolute;\n    opacity: 0;\n    top: 0;\n    right: -20px;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span {\n    padding-right: 25px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span:after {\n    opacity: 1;\n    right: 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".rjT-1tKHBpXYFAQRzhA8Lg\\=\\= {\n    display: inline-block;\n    border-radius: 4px;\n    background-color: var(--main-color);\n    border: none;\n    color: #FFFFFF;\n    text-align: center;\n    font-size: 28px;\n    padding: 20px;\n    width: 200px;\n    transition: all 0.5s;\n    cursor: pointer;\n    margin: 5px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span {\n    cursor: pointer;\n    display: inline-block;\n    position: relative;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span:after {\n    content: '\\00bb';\n    position: absolute;\n    opacity: 0;\n    top: 0;\n    right: -20px;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span {\n    padding-right: 25px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span:after {\n    opacity: 1;\n    right: 0;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"button": "rjT-1tKHBpXYFAQRzhA8Lg=="
