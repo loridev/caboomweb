@@ -17,3 +17,14 @@ a {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+@media (max-width: 648px) {
+    .container {
+        width: 95vw;
+    }
+}
