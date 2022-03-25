@@ -10890,7 +10890,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".X8fw-my878MdDbXz6o6\\+Mw\\=\\= {\r\n\tbackground-image: url(https://empresiona.com/wp-content/uploads/2019/02/guillermo-sanchez-529739-unsplash-2.jpg);\r\n    background-position: center center;\r\n\tbackground-size: cover;\r\n\tbackground-repeat: no-repeat;\r\n    height: 80vw;\r\n    background-color: rgba(0,0,0,0.8);\r\n    filter:brightness(0.5);\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".X8fw-my878MdDbXz6o6\\+Mw\\=\\= {\n\tbackground-image: url(https://empresiona.com/wp-content/uploads/2019/02/guillermo-sanchez-529739-unsplash-2.jpg);\n    background-position: center center;\n\tbackground-size: cover;\n\tbackground-repeat: no-repeat;\n    height: 80vw;\n    background-color: rgba(0,0,0,0.8);\n    filter:brightness(0.5);\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"background": "X8fw-my878MdDbXz6o6+Mw=="
