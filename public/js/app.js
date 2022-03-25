@@ -5477,6 +5477,39 @@ function Navbar(props) {
 
 /***/ }),
 
+/***/ "./resources/js/UI/Video/Video.jsx":
+/*!*****************************************!*\
+  !*** ./resources/js/UI/Video/Video.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_styles_Background_module_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/styles/Background.module.css */ "./resources/js/components/styles/Background.module.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Video(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("video", {
+    autoPlay: "autoplay",
+    muted: "muted",
+    loop: "loop",
+    className: _components_styles_Background_module_css__WEBPACK_IMPORTED_MODULE_0__["default"].background,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("source", {
+      src: props.src,
+      type: "video/mp4"
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Video);
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -5621,15 +5654,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _styles_Background_module_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/Background.module.css */ "./resources/js/components/styles/Background.module.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _UI_Video_Video__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../UI/Video/Video */ "./resources/js/UI/Video/Video.jsx");
+/* harmony import */ var _styles_Background_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/Background.module.css */ "./resources/js/components/styles/Background.module.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 function Background(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "clase",
-    children: props.children
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_UI_Video_Video__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    src: "/videos/mapache.mp4"
   });
 }
 
@@ -5700,15 +5734,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function Home() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_components_Background__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-      children: "CARLOS EL BOMBAS"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-      children: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat possimus deserunt et tenetur? Doloremque, commodi ipsa. Saepe illo placeat optio ex voluptatum, ducimus doloremque esse dolorum sunt, accusantium aliquam modi iste itaque molestiae cum aut aperiam nulla eos quidem necessitatibus. Accusamus illo dolor quas molestias, pariatur hic sit facilis nulla dolore? Suscipit sequi veniam aperiam ab nostrum id modi facere fugit magnam vel aut officia earum, laboriosam placeat soluta commodi minus, nihil expedita quam dicta, eveniet reprehenderit. Repellendus quas itaque alias reprehenderit nisi ullam? Earum, recusandae aliquid molestiae quibusdam reprehenderit animi. Assumenda exercitationem delectus veniam iure maxime rem velit dolore, tempore animi ullam, quia architecto enim fugiat hic! Dolores, quaerat nam alias maxime sed, sit debitis asperiores, voluptates tempore porro nobis et saepe fugiat culpa atque amet officiis temporibus sint expedita. Fugiat, ut! At fugit autem quam inventore voluptatum quod repudiandae temporibus hic animi ea dolorem voluptas ipsum nobis consectetur minima soluta laborum esse quas, blanditiis atque aperiam suscipit sit. Natus beatae alias doloremque nam ipsum modi dolor aperiam, laboriosam enim totam temporibus labore voluptates cumque voluptatum perferendis culpa ratione, voluptatibus non veniam vel consectetur, ducimus eaque. Culpa quis illo repudiandae ducimus asperiores illum voluptatem quisquam, eligendi, reiciendis quod laborum voluptate animi accusamus voluptas! Fugit ipsum excepturi, est ipsa repellat neque quidem eligendi. Explicabo ipsa ea incidunt pariatur numquam iste quos asperiores corrupti, nostrum perspiciatis architecto natus, consectetur dolore vitae quas non reiciendis nulla qui illum omnis magni fugiat facere velit culpa? Cupiditate sequi omnis quam cumque dolorem totam quasi? Ratione veniam sunt consequatur beatae. Velit, tempora, provident rem modi nam beatae alias quod fugiat illo iste adipisci quibusdam repellendus earum dignissimos iure at qui impedit explicabo, labore laborum aperiam! Recusandae totam asperiores voluptates doloremque temporibus unde officiis! Aliquid adipisci perspiciatis voluptatum ab voluptatem sint eius nisi porro! Facilis et magnam eveniet minus quaerat inventore ea harum non nulla odit, dolorem fugiat? Porro doloremque cupiditate animi sint optio culpa error soluta aperiam repellendus, qui laborum ratione rem fugiat officiis corporis, iusto ex! Minima culpa doloribus sed quidem saepe qui doloremque rerum fuga at maxime. Distinctio nostrum obcaecati perferendis. Suscipit maxime porro, ratione ut sunt, iure pariatur corrupti sed adipisci earum mollitia facilis. Quae nobis eligendi possimus blanditiis similique fugiat deserunt necessitatibus aliquid non iusto! Accusamus, reprehenderit. Doloribus eaque molestiae iusto temporibus iure neque tenetur autem corrupti exercitationem! Velit, ut. Ut excepturi minus, natus reprehenderit quam consequatur illum temporibus a harum dolore iste quis maiores autem non nesciunt sunt, soluta beatae ratione perferendis modi. Aut eaque optio in reprehenderit repellendus doloribus nemo quisquam nostrum, amet atque vitae aliquam rem accusantium commodi molestiae ratione? Recusandae voluptas, sit magni dolore impedit aperiam totam odit asperiores nulla eveniet maxime velit culpa temporibus mollitia magnam iste quo fugit eum alias pariatur cupiditate soluta itaque laudantium sunt. Et aut dicta nisi natus aspernatur quia corrupti minima necessitatibus officia eius eligendi consequatur explicabo reiciendis sint, porro itaque earum tempora! Aut reprehenderit nulla consequuntur perferendis officia rerum, vero quod dolores odio nobis qui iure aspernatur, quaerat odit nihil dolore, commodi quam quibusdam? Quisquam exercitationem sed animi, hic, repellendus temporibus distinctio earum doloribus qui deleniti veniam ipsa eum! Eaque dolorum optio ipsum laborum aliquam atque at cumque corporis veritatis, enim voluptatibus illum aspernatur unde nihil eum voluptas in ab vitae. Eum dolores ex iusto excepturi eaque? Est quae, harum exercitationem dolore veritatis saepe, cupiditate ex consequatur commodi eos eum accusantium vitae minus maiores repudiandae atque voluptatem dolorem dolorum delectus iure cum placeat, optio reiciendis nam? Distinctio exercitationem quaerat, doloribus quos voluptas enim magni asperiores, ratione ut ea repellat repudiandae incidunt vel laboriosam, facilis optio quia nisi itaque facere nam fugiat aperiam voluptates aut recusandae. Consequatur, quas. Vitae facilis ad dolorum autem qui corporis inventore sint cupiditate praesentium odit blanditiis nihil accusamus fugit rem ducimus illum, atque repudiandae a similique mollitia modi impedit earum officiis! Ut magni aperiam officiis amet, perspiciatis quo perferendis nulla! Nemo quaerat eaque officia qui cupiditate sit ipsa molestiae eligendi dicta excepturi odit aspernatur architecto natus unde eveniet odio, ullam debitis delectus repellendus nam accusamus provident tempore! Harum non, repellendus porro sed in veritatis suscipit quasi aliquam architecto veniam quae dolorem! Officia quaerat, veniam vel vero debitis amet sit consectetur quibusdam ut distinctio maxime rerum minima nam in aliquid molestias dolorem. Obcaecati debitis quaerat, nihil accusamus sint perspiciatis magnam earum nesciunt autem dignissimos eligendi vero odio eveniet repellendus, rem est voluptate, quo saepe quia placeat harum modi! Ullam optio deleniti harum dolore. Soluta quis quidem iure nihil illum iusto beatae eaque voluptatem corporis. At nostrum et eligendi ratione sapiente, temporibus, doloribus illo tempora voluptas porro, voluptatem autem corporis eos? Explicabo harum exercitationem, amet magnam in unde odit eos maxime ratione illo, quam quaerat consequatur magni quod minus dolorum! Mollitia tempore beatae impedit perferendis consectetur accusamus optio aperiam sapiente accusantium at quidem, praesentium voluptatum, quaerat eum. Consectetur sunt, nam minus iure illum ipsam eum qui mollitia eveniet, quos itaque autem, eligendi expedita at. Esse dolor eveniet mollitia qui eaque earum. Dolores, praesentium alias. Fugiat non aliquam provident sunt quia odit quo adipisci pariatur rerum, praesentium velit eaque veniam beatae. Quod animi incidunt necessitatibus beatae, vel voluptas doloremque earum. Vel amet voluptate ducimus saepe architecto ab animi cupiditate quis? Similique cum corporis at ea non vero unde velit atque, tempora amet! Dicta quia laborum quis voluptates adipisci molestias fugit nesciunt velit, perspiciatis cumque consequuntur pariatur est, quo doloribus, recusandae accusantium? Officia ducimus at, possimus mollitia ab iste dolore voluptates quasi aliquid adipisci beatae debitis dolor facere, porro saepe. Harum, ullam sapiente, dolor sed molestiae dignissimos iure, optio facere quos eveniet cum! Dolores corrupti illum tenetur vitae et at, tempore, necessitatibus, deserunt iusto labore rerum adipisci quaerat laborum provident blanditiis dolore alias quidem nihil vero. Maxime, architecto. Provident voluptatibus quas cumque reiciendis explicabo autem minima commodi ipsum aperiam quaerat ratione ullam dolorem, quidem voluptate sint quasi. Nihil voluptatibus quaerat tempore culpa beatae velit quisquam mollitia dolor optio quidem? Consequuntur voluptates magnam mollitia voluptate dolore eligendi. Eos numquam id reiciendis culpa, ad libero dolor amet suscipit illo excepturi eius? Inventore?"
-    })]
-  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_Background__WEBPACK_IMPORTED_MODULE_0__["default"], {});
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
@@ -10890,7 +10917,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".X8fw-my878MdDbXz6o6\\+Mw\\=\\= {\n\tbackground-image: url(https://empresiona.com/wp-content/uploads/2019/02/guillermo-sanchez-529739-unsplash-2.jpg);\n    background-position: center center;\n\tbackground-size: cover;\n\tbackground-repeat: no-repeat;\n    height: 80vw;\n    background-color: rgba(0,0,0,0.8);\n    filter:brightness(0.5);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".X8fw-my878MdDbXz6o6\\+Mw\\=\\= {\n    background-position: center center;\n\tbackground-size: cover;\n\tbackground-repeat: no-repeat;\n    height: 91vh;\n    width: 100vw;\n    background-color: rgba(0,0,0,0.8);\n    filter:brightness(0.5);\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"background": "X8fw-my878MdDbXz6o6+Mw=="

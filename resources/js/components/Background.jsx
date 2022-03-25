@@ -1,9 +1,8 @@
-import clase from './styles/Background.module.css';
+import Video from '../UI/Video/Video';
+import clases from './styles/Background.module.css';
 function Background(props) {
     return (
-        <div className='clase'>
-            {props.children}
-        </div>
+        <Video src='/videos/mapache.mp4'></Video>
     );
 }
 
