@@ -24,6 +24,7 @@ import css from './../css/app.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
+import Rankings from './pages/Rankings';
 
 function App() {
     const LINKS = [
@@ -60,6 +61,7 @@ if (document.getElementById('root')) {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path='/login' element={<Login />} />
+                        <Route path='/rankings' element={<Rankings />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>
