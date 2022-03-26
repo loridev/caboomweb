@@ -8,7 +8,7 @@ function Background(props) {
             <Video className={clases.video} src={props.src} />
             <div className={clases.containerOver}>
                 <h1 className={clases.text}>{props.text}</h1>
-                <Button text={props.buttonText}></Button>
+                <Button>{props.buttonText}</Button>
             </div>
         </div>
     );

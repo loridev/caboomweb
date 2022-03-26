@@ -1,24 +1,26 @@
+import { Link } from "react-router-dom";
 import Form from "../components/Form/Form";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
-import { Link } from 'react-router-dom';
 
-function Login() {
-    const logIn = () => console.log('hola');
+function Register() {
+    const register = () => console.log('hola');
 
     return (
         <div className="container">
-            <Form onSubmit={logIn}>
+            <Form onSubmit={register}>
                 <Input id="user" label="Username: " />
+                <Input id="email" label="Email: " />
                 <Input id="pwd" label="Password: " />
+                <Input id="repeat" label="Repeat password: " />
                 <Button type="submit">Submit</Button>
             </Form>
             <p>
-                Still without an account? <Link to="/register">Register</Link>
+                Have an account already? <Link to="/login">Log in</Link>
             </p>
         </div>
 
     );
 }
 
-export default Login;
+export default Register;

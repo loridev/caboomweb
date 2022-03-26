@@ -24,7 +24,10 @@ a {
 }
 
 .container {
-    width: 1024px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1024px;
     margin: 0 auto;
 }
 
