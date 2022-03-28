@@ -4,29 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        response()->json(
-            User::all()
-        );
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function register(Request $request)
     {
         $validator = Validator::make(
             $request->all(),
@@ -50,6 +33,17 @@ class UserController extends Controller
             );
         }
 
+        $userExists = User::where('email', $request->email)->orWhere('username', $request->username)->first();
+
+        if (!is_null($userExists)) {
+            return response()->json(
+                [
+                    'errors' => 'User already exists!'
+                ],
+                400
+            );
+        }
+
         $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
@@ -62,6 +56,7 @@ class UserController extends Controller
                 ],
                 'multi' => 0
             ],
+            'money' => 0,
             'isAdmin' => $request->isAdmin
         ]);
 
@@ -71,37 +66,20 @@ class UserController extends Controller
         );
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function login(Request $request)
     {
-        //
-    }
+        $userToLogin = User::where('username', $request->username)->first();
+        if (is_null($userToLogin) || !password_verify($request->password, $userToLogin->password)) {
+            return response()->json([
+                'errors' => 'Username or password is incorrect!'
+            ], 400);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $token = $userToLogin->createToken('CARLOS_EL_BOMBAS');
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return response()->json([
+            'message' => 'User authentified successfully!',
+            'token' => $token->plainTextToken
+        ]);
     }
 }

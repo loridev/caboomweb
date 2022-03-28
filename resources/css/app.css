@@ -31,6 +31,10 @@ a {
     margin: 0 auto;
 }
 
+.hide {
+    display: none;
+}
+
 @media (max-width: 648px) {
     .container {
         width: 95vw;

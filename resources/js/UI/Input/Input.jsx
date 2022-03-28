@@ -19,7 +19,6 @@ function Input(props) {
                 className={`${classes.input} ${props.className}`}
                 placeholder={props.placeholder}
                 value={valueInput}
-                required={true}
             />
         </div>
 
