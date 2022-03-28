@@ -25,7 +25,7 @@ class User extends Authenticatable
     *
     * @var string
     */
-    protected $primaryKey = '_id';
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -46,4 +46,9 @@ class User extends Authenticatable
     ];
 
     protected $connection = 'mysql';
+
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'items_users', 'item_id', 'user_id');
+    }
 }

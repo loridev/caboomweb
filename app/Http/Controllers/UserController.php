@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -48,17 +48,13 @@ class UserController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'items' => [],
-            'progress' => [
-                'indiv' => [
-                    'worldNum' => 1,
-                    'levelNum' => 1
-                ],
-                'multi' => 0
-            ],
+            'indivLevel' => '1-1',
+            'multiWins' => 0,
             'money' => 0,
             'isAdmin' => $request->isAdmin
         ]);
+
+        $user->items;
 
         return response()->json(
             $user,
@@ -68,17 +64,27 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        $userToLogin = User::where('username', $request->username)->first();
-        if (is_null($userToLogin) || !password_verify($request->password, $userToLogin->password)) {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'username' => ['required', 'string'],
+                'password' => ['required']
+            ]
+        );
+
+        if ($validator->fails()) {
             return response()->json([
-                'errors' => 'Username or password is incorrect!'
+                'errors' => $validator->errors()
             ], 400);
         }
-
-        $token = $userToLogin->createToken('CARLOS_EL_BOMBAS');
-
+        if (!Auth::attempt($request->all())) {
+            return response()->json([
+                'errors' => 'Incorrect username or password'
+            ], 400);
+        }
+        $token = auth()->user()->createToken('CARLOS_EL_BOMBAS');
         return response()->json([
-            'message' => 'User authentified successfully!',
+            'message' => 'User authenticated successfully',
             'token' => $token->plainTextToken
         ]);
     }

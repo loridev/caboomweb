@@ -1,13 +1,14 @@
 import Form from "../components/Form/Form";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import Http from "../utils/Http";
 import LoadingSpinner from "../UI/LoadingSpinner/LoadingSpinner";
 
 function Login() {
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     const logIn = async (ev) => {
         ev.preventDefault();
@@ -23,9 +24,11 @@ function Login() {
             }
         });
 
-        console.log(responseFromApi);
-
         setIsLoading(false);
+
+        if (responseFromApi.status) {
+            navigate('/');
+        }
     };
 
     return (
