@@ -6,9 +6,16 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 
 class UserController extends Controller
 {
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+
     public function register(Request $request)
     {
         $validator = Validator::make(
@@ -82,10 +89,16 @@ class UserController extends Controller
                 'errors' => 'Incorrect username or password'
             ], 400);
         }
-        $token = auth()->user()->createToken('CARLOS_EL_BOMBAS');
+        $token = Auth::user()->createToken('CARLOS_EL_BOMBAS');
         return response()->json([
             'message' => 'User authenticated successfully',
             'token' => $token->plainTextToken
         ]);
+    }
+
+    public function currentUser() {
+        return response()->json(
+            Auth::user()
+        );
     }
 }

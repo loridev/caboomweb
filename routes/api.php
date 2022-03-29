@@ -25,3 +25,5 @@ Route::get('/v1/levels/{altId}', [LevelController::class, 'show']);
 Route::post('/v1/users/register', [UserController::class, 'register']);
 
 Route::post('/v1/users/login', [UserController::class, 'login']);
+
+Route::get('/v1/users/current', [UserController::class, 'currentUser']);

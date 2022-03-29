@@ -24,6 +24,11 @@ function Login() {
             }
         });
 
+        const response2 = await Http.fetchData({url: '/api/v1/users/current'});
+
+        console.log(response2);
+
+
         setIsLoading(false);
 
         if (responseFromApi.status) {
