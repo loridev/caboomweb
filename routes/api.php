@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+*/
 
 Route::get('/v1/levels/{altId}', [LevelController::class, 'show']);
 
@@ -26,4 +28,8 @@ Route::post('/v1/users/register', [UserController::class, 'register']);
 
 Route::post('/v1/users/login', [UserController::class, 'login']);
 
-Route::get('/v1/users/current', [UserController::class, 'currentUser']);
+// Route::middleware(['middleware' => 'auth:sanctum'], function () {
+//     Route::get('/v1/users/current', [UserController::class, 'currentUser']);
+// });
+
+Route::middleware('auth:sanctum')->get('/v1/users/current', [UserController::class, 'currentUser']);

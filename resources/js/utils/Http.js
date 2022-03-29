@@ -4,10 +4,14 @@ const Http = {
             const response = await fetch(conf.url, {
                 method: conf.method,
                 headers:  {
-                    'Content-type': 'application/json'
+                    'Content-type': 'application/json',
+                    Authorization: `Bearer ${conf.token}`
                 },
+
                 body: JSON.stringify(conf.body),
             });
+
+            //conf.token ? headers.Authorization = `Bearer ${conf.token}`: '';
 
             const responseJson = await response.json();
 

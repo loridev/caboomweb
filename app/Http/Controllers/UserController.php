@@ -89,16 +89,23 @@ class UserController extends Controller
                 'errors' => 'Incorrect username or password'
             ], 400);
         }
-        $token = Auth::user()->createToken('CARLOS_EL_BOMBAS');
+        $user = Auth::user();
+        $user->items;
+        // $user->rankings;
+        $token = $user->createToken('CARLOS_EL_BOMBAS');
         return response()->json([
             'message' => 'User authenticated successfully',
             'token' => $token->plainTextToken
         ]);
     }
 
-    public function currentUser() {
+    public function currentUser()
+    {
+        $user = Auth::user();
+        $user->items;
+        // $user->rankings;
         return response()->json(
-            Auth::user()
+            $user
         );
     }
 }

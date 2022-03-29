@@ -16,7 +16,7 @@ require('./bootstrap');
 
 import Home from './pages/Home';
 import { render } from 'react-dom';
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from './UI/Navbar/Navbar';
 import NavLink from './UI/Navbar/NavLink';
 import css from './../css/app.css';
@@ -26,6 +26,7 @@ import Login from './pages/Login';
 import Rankings from './pages/Rankings';
 import RankList from './components/Ranking/RankList';
 import Register from './pages/Register';
+import AuthContext, { AuthContextProvider } from './context/AuthContext';
 
 function App() {
     const LINKS = [
@@ -51,6 +52,20 @@ function App() {
         }
     ];
 
+    const ctx = useContext(AuthContext);
+
+    if (ctx.token) {
+        LINKS[4].to = '/logout';
+        LINKS[4].text = 'Log out';
+        if (ctx.isAdmin) {
+            LINKS[3].to = '/admin';
+            LINKS[3].text = 'Admin Panel';
+        } else {
+            LINKS[3].to = '#';
+            LINKS[3].text = '';
+        }
+    }
+
     return(
         <Navbar>
             {LINKS.map((link) => <NavLink to={link.to} text={link.text} key={link.text} />)}
@@ -64,18 +79,20 @@ if (document.getElementById('root')) {
     render(
         (
             <React.StrictMode>
-                <BrowserRouter>
-                    <App />
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path='/login' element={<Login />} />
-                        <Route path='/register' element={<Register />} />
-                        <Route path='/rankings' element={<Rankings />}>
-                            <Route path=':page' element={<RankList />} />
-                        </Route>
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </BrowserRouter>
+                <AuthContextProvider>
+                    <BrowserRouter>
+                        <App />
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/register' element={<Register />} />
+                            <Route path='/rankings' element={<Rankings />}>
+                                <Route path=':page' element={<RankList />} />
+                            </Route>
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </BrowserRouter>
+                </AuthContextProvider>
             </React.StrictMode>
         ),
         document.getElementById('root')

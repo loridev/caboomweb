@@ -18,7 +18,7 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $collection = 'users';
+    protected $table = 'users';
 
     /**
     * The database primary key value.
@@ -46,6 +46,8 @@ class User extends Authenticatable
     ];
 
     protected $connection = 'mysql';
+
+
 
     public function items()
     {
