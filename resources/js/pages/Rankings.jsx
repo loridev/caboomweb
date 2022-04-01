@@ -5,12 +5,14 @@ import Button from "../UI/Button/Button";
 import {useEffect, useState} from "react";
 import Http from "../utils/Http";
 import RankItem from "../components/Ranking/RankItem";
+import LoadingSpinner from "../UI/LoadingSpinner/LoadingSpinner";
 
 function Rankings() {
     const [data, setData] = useState([]);
     const [numPage, setNumPage] = useState(0);
     const [numPages, setNumPages] = useState(0);
     const [pagesShown, setPagesShown] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const refresh = (ev) => {
         ev.preventDefault();
@@ -20,6 +22,7 @@ function Rankings() {
     }
 
     const getData = async (mode, worldNum = 0, levelNum = 0, page = 0) => {
+        setIsLoading(true);
         if (mode === 'indiv') {
             if (page === 0) {
                 const responseFromApi = await Http.fetchData(
@@ -59,6 +62,7 @@ function Rankings() {
                 }
             }
         }
+        setIsLoading(false);
     }
 
     useEffect(() => {
@@ -87,18 +91,27 @@ function Rankings() {
                 <Button type="submit">Refresh</Button>
             </Form>
             <div className="container">
-                <RankList mode="indiv">
-                    <RankItem rank="1" player="Hola" score="50" />
-                    <RankItem rank="2" player="Hola" score="49" />
-                    <RankItem rank="3" player="Hola" score="48" />
-                </RankList>
+                <LoadingSpinner show={isLoading} />
+                {
+                    !isLoading ? (
+                        <RankList mode="indiv">
+                            <RankItem rank="1" player="Hola" score="50" />
+                            <RankItem rank="2" player="Hola" score="49" />
+                            <RankItem rank="3" player="Hola" score="48" />
+                        </RankList>
+                    ) : null
+                }
             </div>
-            <div className="horizontal-group">
-                <span>Page: </span>
-                <a>1</a>
-                <a>2</a>
-                <a>3</a>
-            </div>
+            {
+                !isLoading ? (
+                    <div className="horizontal-group">
+                        <span>Page: </span>
+                        <a>1</a>
+                        <a>2</a>
+                        <a>3</a>
+                    </div>
+                ) : null
+            }
         </>
     )
 }
