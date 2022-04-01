@@ -6266,7 +6266,7 @@ function Login() {
             case 9:
               response2 = _context.sent;
               ctx.setToken(responseFromApi.data.token);
-              ctx.setIsAdmin(response2.data.isAdmin === 1);
+              ctx.setIsAdmin(response2.data['is_admin'] === 1);
               setIsLoading(false);
               navigate('/');
               _context.next = 16;
@@ -6539,10 +6539,25 @@ function Rankings() {
     };
   }();
 
-  (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(function () {
-    getData('indiv', 1, 1);
-    getData('indiv', 1, 1, 1);
-  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return getData('indiv', 1, 1);
+
+          case 2:
+            _context2.next = 4;
+            return getData('indiv', 1, 1, 1);
+
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  })), []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_components_Form_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onSubmit: refresh,
@@ -6614,11 +6629,7 @@ function Rankings() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
         children: "Page: "
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
-        children: "1"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
-        children: "2"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
-        children: "3"
+        children: "Find myself"
       })]
     }) : null]
   });
@@ -6707,7 +6718,7 @@ function Register() {
                   username: ev.target[0].value,
                   email: ev.target[1].value,
                   password: ev.target[2].value,
-                  isAdmin: false
+                  is_admin: false
                 }
               });
 
@@ -11923,7 +11934,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".rjT-1tKHBpXYFAQRzhA8Lg\\=\\= {\n    display: inline-block;\n    border-radius: 4px;\n    background-color: var(--main-color);\n    border: none;\n    color: #FFFFFF;\n    text-align: center;\n    font-size: 28px;\n    padding: 20px;\n    width: 200px;\n    transition: all 0.5s;\n    cursor: pointer;\n    margin: 5px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span {\n    cursor: pointer;\n    display: inline-block;\n    position: relative;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span:after {\n    content: '\\00bb';\n    position: absolute;\n    opacity: 0;\n    top: 0;\n    right: -20px;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span {\n    padding-right: 25px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span:after {\n    opacity: 1;\n    right: 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".rjT-1tKHBpXYFAQRzhA8Lg\\=\\= {\r\n    display: inline-block;\r\n    border-radius: 4px;\r\n    background-color: var(--main-color);\r\n    border: none;\r\n    color: #FFFFFF;\r\n    text-align: center;\r\n    font-size: 28px;\r\n    padding: 20px;\r\n    width: 200px;\r\n    transition: all 0.5s;\r\n    cursor: pointer;\r\n    margin: 5px;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span {\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    position: relative;\r\n    transition: 0.5s;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span:after {\r\n    content: '\\00bb';\r\n    position: absolute;\r\n    opacity: 0;\r\n    top: 0;\r\n    right: -20px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span {\r\n    padding-right: 25px;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span:after {\r\n    opacity: 1;\r\n    right: 0;\r\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"button": "rjT-1tKHBpXYFAQRzhA8Lg=="
@@ -12093,7 +12104,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._7sovfdBZAuvxyhw536x4vw\\=\\= {\n    background-position: center center;\n\tbackground-size: cover;\n\tbackground-repeat: no-repeat;\n    height: 91vh;\n    width: 100vw;\n    background-color: rgba(0,0,0,0.8);\n    filter:brightness(0.5);\n}\n\n.wsj50hmnPQux6DiFdElPIA\\=\\= {\n    position: relative;\n    display: flex;\n}\n\n.ZI5wjEAtwa90YI\\+Ly1IkKQ\\=\\= {\n    position:relative;\n    z-index:0;\n}\n\n.Z9ND8itfwqi6x9OsoznmHg\\=\\= {\n    position:absolute;\n    text-align: center;\n    z-index:1;\n    width: 100vw;\n    align-self: center;\n}\n\n.HBlzEyDO09Ary6iZYKxQLw\\=\\= {\n    font-size: 7rem;\n    margin-bottom: 10vh;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._7sovfdBZAuvxyhw536x4vw\\=\\= {\r\n    background-position: center center;\r\n\tbackground-size: cover;\r\n\tbackground-repeat: no-repeat;\r\n    height: 91vh;\r\n    width: 100vw;\r\n    background-color: rgba(0,0,0,0.8);\r\n    filter:brightness(0.5);\r\n}\r\n\r\n.wsj50hmnPQux6DiFdElPIA\\=\\= {\r\n    position: relative;\r\n    display: flex;\r\n}\r\n\r\n.ZI5wjEAtwa90YI\\+Ly1IkKQ\\=\\= {\r\n    position:relative;\r\n    z-index:0;\r\n}\r\n\r\n.Z9ND8itfwqi6x9OsoznmHg\\=\\= {\r\n    position:absolute;\r\n    text-align: center;\r\n    z-index:1;\r\n    width: 100vw;\r\n    align-self: center;\r\n}\r\n\r\n.HBlzEyDO09Ary6iZYKxQLw\\=\\= {\r\n    font-size: 7rem;\r\n    margin-bottom: 10vh;\r\n}\r\n\r\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"background": "_7sovfdBZAuvxyhw536x4vw==",

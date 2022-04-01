@@ -26,12 +26,12 @@ function Register() {
                 username: ev.target[0].value,
                 email: ev.target[1].value,
                 password: ev.target[2].value,
-                isAdmin: false
+                is_admin: false
             }
         });
 
         console.log(responseFromApi);
-        
+
         setIsLoading(false);
     };
 

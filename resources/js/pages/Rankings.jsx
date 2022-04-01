@@ -65,9 +65,9 @@ function Rankings() {
         setIsLoading(false);
     }
 
-    useEffect(() => {
-        getData('indiv', 1, 1);
-        getData('indiv', 1, 1, 1);
+    useEffect(async () => {
+        await getData('indiv', 1, 1);
+        await getData('indiv', 1, 1, 1);
     }, []);
 
     return (
@@ -106,9 +106,8 @@ function Rankings() {
                 !isLoading ? (
                     <div className="horizontal-group">
                         <span>Page: </span>
-                        <a>1</a>
-                        <a>2</a>
-                        <a>3</a>
+                        {}
+                        <a>Find myself</a>
                     </div>
                 ) : null
             }
