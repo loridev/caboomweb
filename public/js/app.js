@@ -5498,18 +5498,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var _styles_NavLink_module_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/NavLink.module.css */ "./resources/js/UI/Navbar/styles/NavLink.module.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _styles_NavLink_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/NavLink.module.css */ "./resources/js/UI/Navbar/styles/NavLink.module.css");
+/* harmony import */ var _utils_Http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../utils/Http */ "./resources/js/utils/Http.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../context/AuthContext */ "./resources/js/context/AuthContext.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
 
  // TODO : FUNCION QUE LLAMA A LA API EN UN ONCLICK DE UN DIV SI PROPS.TEXT ES LOG OUT
 
 
 
 function NavLink(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-    className: _styles_NavLink_module_css__WEBPACK_IMPORTED_MODULE_0__["default"].option,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+  var ctx = (0,react__WEBPACK_IMPORTED_MODULE_3__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_4__["default"]);
+
+  var logout = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _utils_Http__WEBPACK_IMPORTED_MODULE_2__["default"].fetchData({
+                url: '/api/v1/users/logout',
+                method: 'POST',
+                token: localStorage.getItem('apitoken')
+              });
+
+            case 2:
+              response = _context.sent;
+
+              if (response.status) {
+                localStorage.removeItem('apitoken');
+                ctx.setToken(null);
+              }
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function logout() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+    className: _styles_NavLink_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].option,
+    children: props.text === "Log out" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+      href: "#",
+      onClick: logout,
+      children: props.text
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
       to: props.to,
       children: props.text
     })
@@ -11855,7 +11910,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".rjT-1tKHBpXYFAQRzhA8Lg\\=\\= {\r\n    display: inline-block;\r\n    border-radius: 4px;\r\n    background-color: var(--main-color);\r\n    border: none;\r\n    color: #FFFFFF;\r\n    text-align: center;\r\n    font-size: 28px;\r\n    padding: 20px;\r\n    width: 200px;\r\n    transition: all 0.5s;\r\n    cursor: pointer;\r\n    margin: 5px;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span {\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    position: relative;\r\n    transition: 0.5s;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span:after {\r\n    content: '\\00bb';\r\n    position: absolute;\r\n    opacity: 0;\r\n    top: 0;\r\n    right: -20px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span {\r\n    padding-right: 25px;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span:after {\r\n    opacity: 1;\r\n    right: 0;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".rjT-1tKHBpXYFAQRzhA8Lg\\=\\= {\n    display: inline-block;\n    border-radius: 4px;\n    background-color: var(--main-color);\n    border: none;\n    color: #FFFFFF;\n    text-align: center;\n    font-size: 28px;\n    padding: 20px;\n    width: 200px;\n    transition: all 0.5s;\n    cursor: pointer;\n    margin: 5px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span {\n    cursor: pointer;\n    display: inline-block;\n    position: relative;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span:after {\n    content: '\\00bb';\n    position: absolute;\n    opacity: 0;\n    top: 0;\n    right: -20px;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span {\n    padding-right: 25px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span:after {\n    opacity: 1;\n    right: 0;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"button": "rjT-1tKHBpXYFAQRzhA8Lg=="
@@ -12025,7 +12080,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._7sovfdBZAuvxyhw536x4vw\\=\\= {\r\n    background-position: center center;\r\n\tbackground-size: cover;\r\n\tbackground-repeat: no-repeat;\r\n    height: 91vh;\r\n    width: 100vw;\r\n    background-color: rgba(0,0,0,0.8);\r\n    filter:brightness(0.5);\r\n}\r\n\r\n.wsj50hmnPQux6DiFdElPIA\\=\\= {\r\n    position: relative;\r\n    display: flex;\r\n}\r\n\r\n.ZI5wjEAtwa90YI\\+Ly1IkKQ\\=\\= {\r\n    position:relative;\r\n    z-index:0;\r\n}\r\n\r\n.Z9ND8itfwqi6x9OsoznmHg\\=\\= {\r\n    position:absolute;\r\n    text-align: center;\r\n    z-index:1;\r\n    width: 100vw;\r\n    align-self: center;\r\n}\r\n\r\n.HBlzEyDO09Ary6iZYKxQLw\\=\\= {\r\n    font-size: 7rem;\r\n    margin-bottom: 10vh;\r\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._7sovfdBZAuvxyhw536x4vw\\=\\= {\n    background-position: center center;\n\tbackground-size: cover;\n\tbackground-repeat: no-repeat;\n    height: 91vh;\n    width: 100vw;\n    background-color: rgba(0,0,0,0.8);\n    filter:brightness(0.5);\n}\n\n.wsj50hmnPQux6DiFdElPIA\\=\\= {\n    position: relative;\n    display: flex;\n}\n\n.ZI5wjEAtwa90YI\\+Ly1IkKQ\\=\\= {\n    position:relative;\n    z-index:0;\n}\n\n.Z9ND8itfwqi6x9OsoznmHg\\=\\= {\n    position:absolute;\n    text-align: center;\n    z-index:1;\n    width: 100vw;\n    align-self: center;\n}\n\n.HBlzEyDO09Ary6iZYKxQLw\\=\\= {\n    font-size: 7rem;\n    margin-bottom: 10vh;\n}\n\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"background": "_7sovfdBZAuvxyhw536x4vw==",
