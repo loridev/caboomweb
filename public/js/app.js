@@ -6354,7 +6354,7 @@ function Rankings() {
       pagesShown = _useState8[0],
       setPagesShown = _useState8[1];
 
-  var onSubmitHandler = function onSubmitHandler(ev) {
+  var refresh = function refresh(ev) {
     ev.preventDefault();
     console.log(ev.target[0].value);
     console.log(ev.target[1].value);
@@ -6392,7 +6392,7 @@ function Rankings() {
 
               _context.next = 7;
               return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData({
-                url: "http://localhost:8000/api/v1/rankings/single?world_num=".concat(worldNum, "&level_num=").concat(levelNum)
+                url: "/api/v1/rankings/single?world_num=".concat(worldNum, "&level_num=").concat(levelNum)
               });
 
             case 7:
@@ -6409,7 +6409,7 @@ function Rankings() {
             case 11:
               _context.next = 13;
               return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData({
-                url: "http://localhost:8000/api/v1/rankings/single?world_num=".concat(worldNum, "&level_num=").concat(levelNum, "&page=").concat(page)
+                url: "/api/v1/rankings/single?world_num=".concat(worldNum, "&level_num=").concat(levelNum, "&page=").concat(page)
               });
 
             case 13:
@@ -6432,7 +6432,7 @@ function Rankings() {
 
               _context.next = 20;
               return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData({
-                url: 'http://localhost:8000/api/v1/rankings/multi'
+                url: '/api/v1/rankings/multi'
               });
 
             case 20:
@@ -6449,7 +6449,7 @@ function Rankings() {
             case 24:
               _context.next = 26;
               return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData({
-                url: "http://localhost:8000/api/v1/rankings/multi?page=".concat(page)
+                url: "/api/v1/rankings/multi?page=".concat(page)
               });
 
             case 26:
@@ -6479,7 +6479,7 @@ function Rankings() {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_components_Form_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      onSubmit: onSubmitHandler,
+      onSubmit: refresh,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_UI_Select_Select__WEBPACK_IMPORTED_MODULE_2__["default"], {
         id: "mode",
         placeholder: "Selecct a mode",

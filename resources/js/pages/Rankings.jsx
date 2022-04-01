@@ -12,7 +12,7 @@ function Rankings() {
     const [numPages, setNumPages] = useState(0);
     const [pagesShown, setPagesShown] = useState([]);
 
-    const onSubmitHandler = (ev) => {
+    const refresh = (ev) => {
         ev.preventDefault();
         console.log(ev.target[0].value);
         console.log(ev.target[1].value);
@@ -23,7 +23,7 @@ function Rankings() {
         if (mode === 'indiv') {
             if (page === 0) {
                 const responseFromApi = await Http.fetchData(
-                    {url: `http://localhost:8000/api/v1/rankings/single?world_num=${worldNum}&level_num=${levelNum}`}
+                    {url: `/api/v1/rankings/single?world_num=${worldNum}&level_num=${levelNum}`}
                 );
                 if (!responseFromApi.status) {
                     // FAILED
@@ -32,7 +32,7 @@ function Rankings() {
                 }
             } else {
                 const responseFromApi = await Http.fetchData(
-                    {url: `http://localhost:8000/api/v1/rankings/single?world_num=${worldNum}&level_num=${levelNum}&page=${page}` }
+                    {url: `/api/v1/rankings/single?world_num=${worldNum}&level_num=${levelNum}&page=${page}` }
                 );
                 if (!responseFromApi.status) {
                     // FAILED
@@ -42,7 +42,7 @@ function Rankings() {
             }
         } else {
             if (page === 0) {
-                const responseFromApi = await Http.fetchData({url: 'http://localhost:8000/api/v1/rankings/multi'});
+                const responseFromApi = await Http.fetchData({url: '/api/v1/rankings/multi'});
                 if (!responseFromApi.status) {
                     // FAILED
                 } else {
@@ -50,7 +50,7 @@ function Rankings() {
                 }
             } else {
                 const responseFromApi = await Http.fetchData(
-                    {url: `http://localhost:8000/api/v1/rankings/multi?page=${page}`}
+                    {url: `/api/v1/rankings/multi?page=${page}`}
                 );
                 if (!responseFromApi.status) {
                     // FAILED
@@ -68,7 +68,7 @@ function Rankings() {
 
     return (
         <>
-            <Form onSubmit={onSubmitHandler}>
+            <Form onSubmit={refresh}>
                 <Select id="mode" placeholder="Selecct a mode" >
                     <option value="indiv">Single player</option>
                     <option value="multi">Multiplayer</option>
