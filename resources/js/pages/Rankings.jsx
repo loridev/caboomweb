@@ -9,16 +9,32 @@ import LoadingSpinner from "../UI/LoadingSpinner/LoadingSpinner";
 
 function Rankings() {
     const [data, setData] = useState([]);
-    const [numPage, setNumPage] = useState(0);
-    const [numPages, setNumPages] = useState(0);
+    const [numPage, setNumPage] = useState(1);
     const [pagesShown, setPagesShown] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [numsOfPages, setNumsOfPages] = useState([0]);
 
     const refresh = (ev) => {
         ev.preventDefault();
         console.log(ev.target[0].value);
         console.log(ev.target[1].value);
         console.log(ev.target[2].value);
+    }
+
+    const changePage = (ev) => {
+        setNumPage(Number.parseInt(ev.target.innerHTML));
+        console.log(Number.parseInt(ev.target.innerHTML));
+    }
+
+    const getNumsOfPages = () => {
+        if (numsOfPages.length > 3 && numPage >= 3) {
+            if (numPage !== numsOfPages.length) {
+                return [numPage - 1, numPage, numPage + 1];
+            }
+            return [numPage - 2, numPage -1, numPage];
+        } else {
+            return numsOfPages.slice(0, 3);
+        }
     }
 
     const getData = async (mode, worldNum = 0, levelNum = 0, page = 0) => {
@@ -31,7 +47,13 @@ function Rankings() {
                 if (!responseFromApi.status) {
                     // FAILED
                 } else {
-                    setNumPages(responseFromApi.data.numPages);
+                    const pagesArr = [];
+                    for (let i = 1; i <= responseFromApi.data.numPages; i++) {
+                        pagesArr.push(i);
+                    }
+
+                    setNumsOfPages(pagesArr);
+
                 }
             } else {
                 const responseFromApi = await Http.fetchData(
@@ -49,7 +71,12 @@ function Rankings() {
                 if (!responseFromApi.status) {
                     // FAILED
                 } else {
-                    setNumPages(responseFromApi.data.numPages);
+                    const pagesArr = [];
+                    for (let i = 1; i <= responseFromApi.data.numPages; i++) {
+                        pagesArr.push(i);
+                    }
+
+                    setNumsOfPages(pagesArr);
                 }
             } else {
                 const responseFromApi = await Http.fetchData(
@@ -69,6 +96,10 @@ function Rankings() {
         await getData('indiv', 1, 1);
         await getData('indiv', 1, 1, 1);
     }, []);
+
+    useEffect(() => {
+        console.log(numsOfPages)
+    },[numsOfPages])
 
     return (
         <>
@@ -106,7 +137,7 @@ function Rankings() {
                 !isLoading ? (
                     <div className="horizontal-group">
                         <span>Page: </span>
-                        {}
+                        {getNumsOfPages().map((pageShown) => <a onClick={changePage}>{pageShown}</a>)}
                         <a>Find myself</a>
                     </div>
                 ) : null

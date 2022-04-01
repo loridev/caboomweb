@@ -6396,25 +6396,25 @@ function Rankings() {
       data = _useState2[0],
       setData = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(0),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(1),
       _useState4 = _slicedToArray(_useState3, 2),
       numPage = _useState4[0],
       setNumPage = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(0),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([]),
       _useState6 = _slicedToArray(_useState5, 2),
-      numPages = _useState6[0],
-      setNumPages = _useState6[1];
+      pagesShown = _useState6[0],
+      setPagesShown = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([]),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false),
       _useState8 = _slicedToArray(_useState7, 2),
-      pagesShown = _useState8[0],
-      setPagesShown = _useState8[1];
+      isLoading = _useState8[0],
+      setIsLoading = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([0]),
       _useState10 = _slicedToArray(_useState9, 2),
-      isLoading = _useState10[0],
-      setIsLoading = _useState10[1];
+      numsOfPages = _useState10[0],
+      setNumsOfPages = _useState10[1];
 
   var refresh = function refresh(ev) {
     ev.preventDefault();
@@ -6423,14 +6423,35 @@ function Rankings() {
     console.log(ev.target[2].value);
   };
 
+  var changePage = function changePage(ev) {
+    setNumPage(Number.parseInt(ev.target.innerHTML));
+    console.log(Number.parseInt(ev.target.innerHTML));
+  };
+
+  var getNumsOfPages = function getNumsOfPages() {
+    if (numsOfPages.length > 3 && numPage >= 3) {
+      if (numPage !== numsOfPages.length) {
+        return [numPage - 1, numPage, numPage + 1];
+      }
+
+      return [numPage - 2, numPage - 1, numPage];
+    } else {
+      return numsOfPages.slice(0, 3);
+    }
+  };
+
   var getData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(mode) {
       var worldNum,
           levelNum,
           page,
           responseFromApi,
+          pagesArr,
+          i,
           _responseFromApi,
           _responseFromApi2,
+          _pagesArr,
+          _i2,
           _responseFromApi3,
           _args = arguments;
 
@@ -6463,7 +6484,13 @@ function Rankings() {
 
               if (!responseFromApi.status) {// FAILED
               } else {
-                setNumPages(responseFromApi.data.numPages);
+                pagesArr = [];
+
+                for (i = 1; i <= responseFromApi.data.numPages; i++) {
+                  pagesArr.push(i);
+                }
+
+                setNumsOfPages(pagesArr);
               }
 
               _context.next = 16;
@@ -6503,7 +6530,13 @@ function Rankings() {
 
               if (!_responseFromApi2.status) {// FAILED
               } else {
-                setNumPages(_responseFromApi2.data.numPages);
+                _pagesArr = [];
+
+                for (_i2 = 1; _i2 <= _responseFromApi2.data.numPages; _i2++) {
+                  _pagesArr.push(_i2);
+                }
+
+                setNumsOfPages(_pagesArr);
               }
 
               _context.next = 29;
@@ -6558,6 +6591,9 @@ function Rankings() {
       }
     }, _callee2);
   })), []);
+  (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(function () {
+    console.log(numsOfPages);
+  }, [numsOfPages]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_components_Form_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onSubmit: refresh,
@@ -6628,6 +6664,11 @@ function Rankings() {
       className: "horizontal-group",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
         children: "Page: "
+      }), getNumsOfPages().map(function (pageShown) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+          onClick: changePage,
+          children: pageShown
+        });
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
         children: "Find myself"
       })]
