@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import Http from "../utils/Http";
 
 const AuthContext = createContext({
     token: '',

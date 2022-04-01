@@ -28,7 +28,8 @@ function Login() {
         if (responseFromApi.status) {
             localStorage.setItem('apitoken', responseFromApi.data.token);
 
-            const response2 = await Http.fetchData({url: '/api/v1/users/current', token: responseFromApi.data.token});
+            const response2 = await Http.fetchData({url: '/api/v1/users/current', 
+                token: localStorage.getItem('apitoken')});
 
             ctx.setToken(responseFromApi.data.token);
             ctx.setIsAdmin(response2.data.isAdmin === 1);

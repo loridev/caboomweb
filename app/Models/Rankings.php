@@ -9,6 +9,8 @@ class Rankings extends Model
 {
     use HasFactory;
 
+    public $connection = 'mysql';
+
     /**
      * The database table used by the model.
      *
@@ -29,11 +31,11 @@ class Rankings extends Model
      * @var array
      */
     protected $fillable = [
-        'mode', 'time', 'wins'
+        'world_num', 'level_num', 'time', 'user_id'
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany(User::class, 'rankings_users', 'ranking_id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

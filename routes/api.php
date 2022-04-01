@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LevelController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,12 @@ Route::get('/v1/levels/{altId}', [LevelController::class, 'show']);
 Route::post('/v1/users/register', [UserController::class, 'register']);
 
 Route::post('/v1/users/login', [UserController::class, 'login']);
+
+Route::post('/v1/rankings/', [RankingController::class, 'store']);
+
+Route::get('/v1/rankings/single', [RankingController::class, 'getIndiv']);
+
+Route::get('/v1/rankings/multi', [RankingController::class, 'getMulti']);
 
 // Route::middleware(['middleware' => 'auth:sanctum'], function () {
 //     Route::get('/v1/users/current', [UserController::class, 'currentUser']);

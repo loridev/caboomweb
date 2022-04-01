@@ -24,9 +24,7 @@ class UserController extends Controller
                 'username' => 'required|string',
                 'email' => 'required|email',
                 'password' => 'required',
-                'items' => 'array',
-                'progress' => 'array',
-                'isAdmin' => 'required|boolean'
+                'is_admin' => 'required|boolean'
             ]
         );
 
@@ -55,10 +53,10 @@ class UserController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'indivLevel' => '1-1',
-            'multiWins' => 0,
+            'indiv_level' => '1-1',
+            'multi_wins' => 0,
             'money' => 0,
-            'isAdmin' => $request->isAdmin
+            'is_admin' => $request->is_admin
         ]);
 
         $user->items;

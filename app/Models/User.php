@@ -33,7 +33,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'items', 'progress', 'isAdmin'
+        'username', 'email', 'password', 'indiv_level', 'multi_wins', 'money', 'is_admin'
     ];
 
     /**
@@ -56,6 +56,6 @@ class User extends Authenticatable
 
     public function rankings()
     {
-        return $this->belongsToMany(Rankings::class, 'rankings_users', 'ranking_id', 'user_id');
+        return $this->hasMany(Rankings::class, 'used_id', 'id');
     }
 }
