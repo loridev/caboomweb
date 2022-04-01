@@ -29,6 +29,8 @@ Route::post('/v1/users/register', [UserController::class, 'register']);
 
 Route::post('/v1/users/login', [UserController::class, 'login']);
 
+Route::post('/v1/users/logout', [UserController::class, 'logout'])->middleware('auth:sanctum');
+
 Route::post('/v1/rankings/', [RankingController::class, 'store']);
 
 Route::get('/v1/rankings/single', [RankingController::class, 'getIndiv']);

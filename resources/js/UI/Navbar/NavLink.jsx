@@ -1,10 +1,33 @@
 import { Link } from 'react-router-dom';
 import classes from './styles/NavLink.module.css';
+import Http from './../../utils/Http';
+import { useContext } from 'react';
+import AuthContext from './../../context/AuthContext';
+
 // TODO : FUNCION QUE LLAMA A LA API EN UN ONCLICK DE UN DIV SI PROPS.TEXT ES LOG OUT
 function NavLink(props) {
+    const ctx = useContext(AuthContext);
+
+    const logout = async () => {
+        const response = await Http.fetchData({
+            url: '/api/v1/users/logout',
+            method: 'POST',
+            token: localStorage.getItem('apitoken'),
+        })
+
+        if (response.status) {
+            localStorage.removeItem('apitoken');
+            ctx.setToken(null);
+        }
+    };
+
     return (
         <li className={classes.option}>
-            <Link to={props.to}>{props.text}</Link>
+            {props.text === "Log out" ? (
+                <a href="#" onClick={logout}>{props.text}</a>
+            ) : (
+                <Link to={ props.to }>{props.text}</Link>
+            )}
         </li>
     );
 }
