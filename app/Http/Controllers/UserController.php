@@ -93,7 +93,8 @@ class UserController extends Controller
         $token = $user->createToken('CARLOS_EL_BOMBAS');
         return response()->json([
             'message' => 'User authenticated successfully',
-            'token' => $token->plainTextToken
+            'token' => $token->plainTextToken,
+            'user' => $user
         ]);
     }
 
