@@ -6236,7 +6236,7 @@ function Login() {
 
   var logIn = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(ev) {
-      var responseFromApi, response2;
+      var responseFromApi;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -6256,28 +6256,16 @@ function Login() {
             case 4:
               responseFromApi = _context.sent;
 
-              if (!responseFromApi.status) {
-                _context.next = 16;
-                break;
+              if (responseFromApi.status) {
+                localStorage.setItem('apitoken', responseFromApi.data.token);
+                ctx.setToken(responseFromApi.data.token);
+                ctx.setIsAdmin(responseFromApi.data.user['is_admin'] === 1);
+                setIsLoading(false);
+                navigate('/');
+              } else {// TOAST
               }
 
-              localStorage.setItem('apitoken', responseFromApi.data.token);
-              _context.next = 9;
-              return _utils_Http__WEBPACK_IMPORTED_MODULE_5__["default"].fetchData({
-                url: '/api/v1/users/current',
-                token: localStorage.getItem('apitoken')
-              });
-
-            case 9:
-              response2 = _context.sent;
-              ctx.setToken(responseFromApi.data.token);
-              ctx.setIsAdmin(response2.data['is_admin'] === 1);
-              setIsLoading(false);
-              navigate('/');
-              _context.next = 16;
-              break;
-
-            case 16:
+            case 6:
             case "end":
               return _context.stop();
           }
