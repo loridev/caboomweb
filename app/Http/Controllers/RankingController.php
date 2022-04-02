@@ -8,6 +8,7 @@ use http\Env\Response;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class RankingController extends Controller
@@ -77,17 +78,17 @@ class RankingController extends Controller
         if (!$request->query('page')) {
             $rankings = Rankings::query()->where('world_num', $request->query('world_num'))
                 ->where('level_num', $request->query('level_num'))
-                ->orderByDesc('time')
+                ->orderBy('time')->orderBy('id')
                 ->get();
         } else {
             $rankings = Rankings::query()->where('world_num', intval($request->query('world_num')))
                 ->where('level_num', intval($request->query('level_num')))
-                ->orderByDesc('time')
+                ->orderBy('time')->orderBy('id')
                 ->skip($request->query('page') * 5 - 5)->take(5)
                 ->get();
         }
 
-        return $this->processRankings($rankings, $request);
+        return $this->processRankings($rankings, $request, 'indiv');
     }
 
     public function getMulti(Request $request) {
@@ -110,14 +111,14 @@ class RankingController extends Controller
         $rankings = [];
 
         if (!$request->query('page')) {
-            $rankings = User::query()->orderBy('multi_wins')->get();
+            $rankings = User::query()->orderByDesc('multi_wins')->orderBy('id')->get();
         } else {
-            $rankings = User::query()->orderBy('multi_wins')
+            $rankings = User::query()->orderByDesc('multi_wins')->orderBy('id')
                 ->skip($request->query('page') * 5 - 5)->take(5)
                 ->get();
         }
 
-        return $this->processRankings($rankings, $request);
+        return $this->processRankings($rankings, $request, 'multi');
 
 
     }
@@ -127,7 +128,7 @@ class RankingController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    private function processRankings($rankings, Request $request): JsonResponse
+    private function processRankings($rankings, Request $request, string $mode): JsonResponse
     {
         if (count($rankings) === 0) {
             return response()->json(
@@ -135,6 +136,18 @@ class RankingController extends Controller
                     'error' => 'No rankings found!'
                 ], 404
             );
+        }
+
+        foreach ($rankings as $ranking) {
+            $ranking->user;
+        }
+
+        if ($userId = Auth::id()) {
+            foreach ($rankings as $ranking) {
+                if (($ranking->user_id === $userId && $mode === 'indiv') || ($ranking->id === $userId && $mode === 'multi')) {
+                    $ranking['current'] = true;
+                }
+            }
         }
 
         $returnObj = [

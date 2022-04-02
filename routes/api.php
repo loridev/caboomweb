@@ -3,6 +3,7 @@
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\_OptionalAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +36,11 @@ Route::post('/v1/rankings/', [RankingController::class, 'store']);
 
 Route::get('/v1/rankings/single', [RankingController::class, 'getIndiv']);
 
+Route::get('/v1/rankings/single/current', [RankingController::class, 'getIndiv'])->middleware('auth:sanctum');
+
 Route::get('/v1/rankings/multi', [RankingController::class, 'getMulti']);
+
+Route::get('/v1/rankings/multi/current', [RankingController::class, 'getMulti'])->middleware('auth:sanctum');
 
 // Route::middleware(['middleware' => 'auth:sanctum'], function () {
 //     Route::get('/v1/users/current', [UserController::class, 'currentUser']);

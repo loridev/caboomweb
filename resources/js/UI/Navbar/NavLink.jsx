@@ -12,12 +12,13 @@ function NavLink(props) {
         const response = await Http.fetchData({
             url: '/api/v1/users/logout',
             method: 'POST',
-            token: localStorage.getItem('apitoken'),
+            token: ctx.token,
         })
 
         if (response.status) {
             localStorage.removeItem('apitoken');
             ctx.setToken(null);
+            location.reload();
         }
     };
 

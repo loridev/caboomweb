@@ -5386,6 +5386,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Button(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+    disabled: props.disabled,
     type: props.type,
     className: _Button_module_css__WEBPACK_IMPORTED_MODULE_0__["default"].button,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -5534,7 +5535,7 @@ function NavLink(props) {
               return _utils_Http__WEBPACK_IMPORTED_MODULE_2__["default"].fetchData({
                 url: '/api/v1/users/logout',
                 method: 'POST',
-                token: localStorage.getItem('apitoken')
+                token: ctx.token
               });
 
             case 2:
@@ -5543,6 +5544,7 @@ function NavLink(props) {
               if (response.status) {
                 localStorage.removeItem('apitoken');
                 ctx.setToken(null);
+                location.reload();
               }
 
             case 4:
@@ -6013,6 +6015,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function RankItem(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
+    className: props.current ? 'highlight' : null,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
       children: props.rank
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
@@ -6116,6 +6119,7 @@ function AuthContextProvider(props) {
 
   var getToken = function getToken() {
     try {
+      console.log('hola');
       setToken(localStorage.getItem('apitoken'));
     } catch (err) {
       console.log('error retrieving token');
@@ -6125,10 +6129,11 @@ function AuthContextProvider(props) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getToken();
-  }, [token]);
+  }, []);
   var context = {
     token: token,
     isAdmin: isAdmin,
+    getToken: getToken,
     setToken: setToken,
     setIsAdmin: setIsAdmin
   };
@@ -6359,7 +6364,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_Http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/Http */ "./resources/js/utils/Http.js");
 /* harmony import */ var _components_Ranking_RankItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Ranking/RankItem */ "./resources/js/components/Ranking/RankItem.jsx");
 /* harmony import */ var _UI_LoadingSpinner_LoadingSpinner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../UI/LoadingSpinner/LoadingSpinner */ "./resources/js/UI/LoadingSpinner/LoadingSpinner.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../context/AuthContext */ "./resources/js/context/AuthContext.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -6390,42 +6396,67 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Rankings() {
+  var ctx = (0,react__WEBPACK_IMPORTED_MODULE_5__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_9__["default"]);
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      data = _useState2[0],
-      setData = _useState2[1];
+      fullData = _useState2[0],
+      setFullData = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(1),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
-      numPage = _useState4[0],
-      setNumPage = _useState4[1];
+      data = _useState4[0],
+      setData = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([]),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(1),
       _useState6 = _slicedToArray(_useState5, 2),
-      pagesShown = _useState6[0],
-      setPagesShown = _useState6[1];
+      numPage = _useState6[0],
+      setNumPage = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([]),
       _useState8 = _slicedToArray(_useState7, 2),
-      isLoading = _useState8[0],
-      setIsLoading = _useState8[1];
+      pagesShown = _useState8[0],
+      setPagesShown = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([0]),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false),
       _useState10 = _slicedToArray(_useState9, 2),
-      numsOfPages = _useState10[0],
-      setNumsOfPages = _useState10[1];
+      isLoading = _useState10[0],
+      setIsLoading = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([0]),
+      _useState12 = _slicedToArray(_useState11, 2),
+      numsOfPages = _useState12[0],
+      setNumsOfPages = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)('indiv'),
+      _useState14 = _slicedToArray(_useState13, 2),
+      mode = _useState14[0],
+      setMode = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(1),
+      _useState16 = _slicedToArray(_useState15, 2),
+      worldNum = _useState16[0],
+      setWorldNum = _useState16[1];
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(1),
+      _useState18 = _slicedToArray(_useState17, 2),
+      levelNum = _useState18[0],
+      setLevelNum = _useState18[1];
+
+  var firstUpdate = (0,react__WEBPACK_IMPORTED_MODULE_5__.useRef)(true);
 
   var refresh = function refresh(ev) {
     ev.preventDefault();
-    console.log(ev.target[0].value);
-    console.log(ev.target[1].value);
-    console.log(ev.target[2].value);
+    setMode(ev.target[0].value);
+    setWorldNum(Number.parseInt(ev.target[1].value));
+    setLevelNum(Number.parseInt(ev.target[2].value));
+    setNumPage(1);
   };
 
   var changePage = function changePage(ev) {
     setNumPage(Number.parseInt(ev.target.innerHTML));
-    console.log(Number.parseInt(ev.target.innerHTML));
   };
 
   var getNumsOfPages = function getNumsOfPages() {
@@ -6440,18 +6471,51 @@ function Rankings() {
     }
   };
 
+  var parseRankings = function parseRankings() {
+    return Array.from(data).map(function (rank) {
+      if (rank.user) {
+        return {
+          username: rank.user.username,
+          score: rank.time,
+          currentUser: rank.current
+        };
+      }
+
+      return {
+        username: rank.username,
+        score: rank['multi_wins'],
+        currentUser: rank.current
+      };
+    });
+  };
+
+  var findMyself = function findMyself() {
+    var index = fullData.findIndex(function (rank) {
+      return rank.current;
+    });
+    console.log(index);
+
+    if (index !== -1) {
+      setNumPage(Math.floor((index + 1) / 5 + 1));
+    }
+  };
+
   var getData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(mode) {
       var worldNum,
           levelNum,
           page,
+          configObj,
           responseFromApi,
           pagesArr,
           i,
+          _configObj,
           _responseFromApi,
+          _configObj2,
           _responseFromApi2,
           _pagesArr,
           _i2,
+          _configObj3,
           _responseFromApi3,
           _args = arguments;
 
@@ -6465,21 +6529,30 @@ function Rankings() {
               setIsLoading(true);
 
               if (!(mode === 'indiv')) {
-                _context.next = 18;
+                _context.next = 22;
                 break;
               }
 
               if (!(page === 0)) {
-                _context.next = 12;
+                _context.next = 14;
                 break;
               }
 
-              _context.next = 8;
-              return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData({
+              configObj = {
                 url: "/api/v1/rankings/single?world_num=".concat(worldNum, "&level_num=").concat(levelNum)
-              });
+              };
 
-            case 8:
+              if (localStorage.getItem('apitoken')) {
+                configObj = {
+                  url: "/api/v1/rankings/single/current?world_num=".concat(worldNum, "&level_num=").concat(levelNum),
+                  token: localStorage.getItem('apitoken')
+                };
+              }
+
+              _context.next = 10;
+              return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData(configObj);
+
+            case 10:
               responseFromApi = _context.sent;
 
               if (!responseFromApi.status) {// FAILED
@@ -6490,42 +6563,62 @@ function Rankings() {
                   pagesArr.push(i);
                 }
 
+                setFullData(responseFromApi.data.rankings);
                 setNumsOfPages(pagesArr);
               }
 
-              _context.next = 16;
+              _context.next = 20;
               break;
 
-            case 12:
-              _context.next = 14;
-              return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData({
-                url: "/api/v1/rankings/single?world_num=".concat(worldNum, "&level_num=").concat(levelNum, "&page=").concat(page)
-              });
-
             case 14:
+              _configObj = {
+                url: "/api/v1/rankings/single?world_num=".concat(worldNum, "&level_num=").concat(levelNum, "&page=").concat(page)
+              };
+
+              if (localStorage.getItem('apitoken')) {
+                _configObj = {
+                  url: "/api/v1/rankings/single/current?world_num=".concat(worldNum, "&level_num=").concat(levelNum, "&page=").concat(page),
+                  token: localStorage.getItem('apitoken')
+                };
+              }
+
+              _context.next = 18;
+              return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData(_configObj);
+
+            case 18:
               _responseFromApi = _context.sent;
 
               if (!_responseFromApi.status) {// FAILED
               } else {
-                setData(_responseFromApi.data);
+                console.log(_responseFromApi.data);
+                setData(_responseFromApi.data.rankings);
               }
 
-            case 16:
-              _context.next = 29;
+            case 20:
+              _context.next = 37;
               break;
 
-            case 18:
+            case 22:
               if (!(page === 0)) {
-                _context.next = 25;
+                _context.next = 31;
                 break;
               }
 
-              _context.next = 21;
-              return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData({
-                url: '/api/v1/rankings/multi'
-              });
+              _configObj2 = {
+                url: "/api/v1/rankings/multi"
+              };
 
-            case 21:
+              if (localStorage.getItem('apitoken')) {
+                _configObj2 = {
+                  url: "/api/v1/rankings/multi/current",
+                  token: localStorage.getItem('apitoken')
+                };
+              }
+
+              _context.next = 27;
+              return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData(_configObj2);
+
+            case 27:
               _responseFromApi2 = _context.sent;
 
               if (!_responseFromApi2.status) {// FAILED
@@ -6536,30 +6629,41 @@ function Rankings() {
                   _pagesArr.push(_i2);
                 }
 
+                setFullData(_responseFromApi2.data.rankings);
                 setNumsOfPages(_pagesArr);
               }
 
-              _context.next = 29;
+              _context.next = 37;
               break;
 
-            case 25:
-              _context.next = 27;
-              return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData({
+            case 31:
+              _configObj3 = {
                 url: "/api/v1/rankings/multi?page=".concat(page)
-              });
+              };
 
-            case 27:
+              if (localStorage.getItem('apitoken')) {
+                _configObj3 = {
+                  url: "/api/v1/rankings/multi/current?page=".concat(page),
+                  token: localStorage.getItem('apitoken')
+                };
+              }
+
+              _context.next = 35;
+              return _utils_Http__WEBPACK_IMPORTED_MODULE_6__["default"].fetchData(_configObj3);
+
+            case 35:
               _responseFromApi3 = _context.sent;
 
               if (!_responseFromApi3.status) {// FAILED
               } else {
-                setData(_responseFromApi3.data);
+                console.log(_responseFromApi3.data);
+                setData(_responseFromApi3.data.rankings);
               }
 
-            case 29:
+            case 37:
               setIsLoading(false);
 
-            case 30:
+            case 38:
             case "end":
               return _context.stop();
           }
@@ -6577,99 +6681,151 @@ function Rankings() {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _context2.next = 2;
-            return getData('indiv', 1, 1);
+            if (!firstUpdate.current) {
+              _context2.next = 6;
+              break;
+            }
 
-          case 2:
-            _context2.next = 4;
-            return getData('indiv', 1, 1, 1);
+            _context2.next = 3;
+            return getData(mode, worldNum, levelNum);
 
-          case 4:
+          case 3:
+            _context2.next = 5;
+            return getData(mode, worldNum, levelNum, numPage);
+
+          case 5:
+            firstUpdate.current = false;
+
+          case 6:
           case "end":
             return _context2.stop();
         }
       }
     }, _callee2);
   })), []);
-  (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(function () {
-    console.log(numsOfPages);
-  }, [numsOfPages]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_components_Form_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            if (firstUpdate.current) {
+              _context3.next = 6;
+              break;
+            }
+
+            _context3.next = 3;
+            return getData(mode, worldNum, levelNum);
+
+          case 3:
+            if (!(numPage !== 0)) {
+              _context3.next = 6;
+              break;
+            }
+
+            _context3.next = 6;
+            return getData(mode, worldNum, levelNum, numPage);
+
+          case 6:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  })), [mode, worldNum, levelNum]);
+  (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            if (firstUpdate.current) {
+              _context4.next = 3;
+              break;
+            }
+
+            _context4.next = 3;
+            return getData(mode, worldNum, levelNum, numPage);
+
+          case 3:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  })), [numPage]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_components_Form_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onSubmit: refresh,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_UI_Select_Select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_UI_Select_Select__WEBPACK_IMPORTED_MODULE_2__["default"], {
         id: "mode",
         placeholder: "Selecct a mode",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
           value: "indiv",
           children: "Single player"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
           value: "multi",
           children: "Multiplayer"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_UI_Select_Select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_UI_Select_Select__WEBPACK_IMPORTED_MODULE_2__["default"], {
         id: "world",
         placeholder: "Select a world",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
           value: 1,
           children: "World 1"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
           value: 2,
           children: "World 2"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
           value: 3,
           children: "World 3"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_UI_Select_Select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_UI_Select_Select__WEBPACK_IMPORTED_MODULE_2__["default"], {
         id: "level",
         placeholder: "Select a level",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
           value: 1,
           children: "Level 1"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
           value: 2,
           children: "Level 2"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
           value: 3,
           children: "Level 3"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
           value: 4,
           children: "Level 4"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_UI_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_UI_Button_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        disabled: isLoading,
         type: "submit",
         children: "Refresh"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
       className: "container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_UI_LoadingSpinner_LoadingSpinner__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_UI_LoadingSpinner_LoadingSpinner__WEBPACK_IMPORTED_MODULE_8__["default"], {
         show: isLoading
-      }), !isLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_components_Ranking_RankList__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        mode: "indiv",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Ranking_RankItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
-          rank: "1",
-          player: "Hola",
-          score: "50"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Ranking_RankItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
-          rank: "2",
-          player: "Hola",
-          score: "49"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Ranking_RankItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
-          rank: "3",
-          player: "Hola",
-          score: "48"
-        })]
+      }), !isLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Ranking_RankList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        mode: mode,
+        children: parseRankings().map(function (ranking, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Ranking_RankItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            rank: i + 1 + numPage * 5 - 5,
+            player: ranking.username,
+            score: ranking.score,
+            current: ranking.currentUser
+          });
+        })
       }) : null]
-    }), !isLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    }), !isLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
       className: "horizontal-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
         children: "Page: "
       }), getNumsOfPages().map(function (pageShown) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
+          className: pageShown === numPage ? 'highlight' : '',
           onClick: changePage,
           children: pageShown
         });
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
+        onClick: findMyself,
         children: "Find myself"
       })]
     }) : null]
@@ -11951,7 +12107,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n    --main-color: #AF22A5;\n    --background-color: #222222;\n    --background-light: #444444;\n}\n\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    font-family: sans-serif;\n    background-color: var(--background-color);\n    color: white;\n    overflow-x: hidden;\n}\n\na {\n    text-decoration: none;\n    color: white;\n    font-size: 1.2rem;\n    font-weight: bold;\n    text-transform: uppercase;\n    cursor: pointer;\n}\n\n.container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    max-width: 1024px;\n    margin: 0 auto;\n}\n\n.horizontal-group {\n    display: flex;\n    justify-content: space-evenly;\n}\n\n.hide {\n    display: none;\n}\n\n@media (max-width: 648px) {\n    .container {\n        width: 95vw;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n    --main-color: #AF22A5;\n    --background-color: #222222;\n    --background-light: #444444;\n}\n\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    font-family: sans-serif;\n    background-color: var(--background-color);\n    color: white;\n    overflow-x: hidden;\n}\n\n.highlight {\n    color: yellow;\n}\n\na {\n    text-decoration: none;\n    color: white;\n    font-size: 1.2rem;\n    font-weight: bold;\n    text-transform: uppercase;\n    cursor: pointer;\n}\n\n.container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    max-width: 1024px;\n    margin: 0 auto;\n}\n\n.horizontal-group {\n    display: flex;\n    justify-content: space-evenly;\n}\n\n.hide {\n    display: none;\n}\n\n@media (max-width: 648px) {\n    .container {\n        width: 95vw;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12203,7 +12359,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tVdse9uEjjmAb0nKA5ITRg\\=\\= {\n    color: white;\n    border-collapse: collapse;\n    width: 100vw;\n    border: 0.5px solid white;\n    margin-bottom: 2vh;\n}\n\n.tVdse9uEjjmAb0nKA5ITRg\\=\\= th, .tVdse9uEjjmAb0nKA5ITRg\\=\\= td {\n    text-align: left;\n    padding: 8px;\n}\n\n.tVdse9uEjjmAb0nKA5ITRg\\=\\= th {\n    background-color: var(--main-color);\n}\n\n.tVdse9uEjjmAb0nKA5ITRg\\=\\= tbody tr:nth-child(even) {\n    background-color: var(--background-light);\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".tVdse9uEjjmAb0nKA5ITRg\\=\\= {\n    color: white;\n    border-collapse: collapse;\n    width: 95vw;\n    border: 0.5px solid white;\n    margin-bottom: 2vh;\n}\n\n.tVdse9uEjjmAb0nKA5ITRg\\=\\= th, .tVdse9uEjjmAb0nKA5ITRg\\=\\= td {\n    text-align: left;\n    padding: 8px;\n}\n\n.tVdse9uEjjmAb0nKA5ITRg\\=\\= th {\n    background-color: var(--main-color);\n}\n\n.tVdse9uEjjmAb0nKA5ITRg\\=\\= tbody tr:nth-child(even) {\n    background-color: var(--background-light);\n}\n\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"ranking": "tVdse9uEjjmAb0nKA5ITRg=="

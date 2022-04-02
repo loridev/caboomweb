@@ -2,28 +2,36 @@ import RankList from "../components/Ranking/RankList"
 import Select from "../UI/Select/Select";
 import Form from "../components/Form/Form";
 import Button from "../UI/Button/Button";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import Http from "../utils/Http";
 import RankItem from "../components/Ranking/RankItem";
 import LoadingSpinner from "../UI/LoadingSpinner/LoadingSpinner";
+import AuthContext from "../context/AuthContext";
 
 function Rankings() {
+    const ctx = useContext(AuthContext);
+    const [fullData, setFullData] = useState([]);
     const [data, setData] = useState([]);
     const [numPage, setNumPage] = useState(1);
     const [pagesShown, setPagesShown] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [numsOfPages, setNumsOfPages] = useState([0]);
+    const [mode, setMode] = useState('indiv');
+    const [worldNum, setWorldNum] = useState(1);
+    const [levelNum, setLevelNum] = useState(1);
+    const firstUpdate = useRef(true);
 
     const refresh = (ev) => {
         ev.preventDefault();
-        console.log(ev.target[0].value);
-        console.log(ev.target[1].value);
-        console.log(ev.target[2].value);
+        setMode(ev.target[0].value);
+        setWorldNum(Number.parseInt(ev.target[1].value));
+        setLevelNum(Number.parseInt(ev.target[2].value));
+
+        setNumPage(1);
     }
 
     const changePage = (ev) => {
         setNumPage(Number.parseInt(ev.target.innerHTML));
-        console.log(Number.parseInt(ev.target.innerHTML));
     }
 
     const getNumsOfPages = () => {
@@ -37,13 +45,45 @@ function Rankings() {
         }
     }
 
+    const parseRankings = () => {
+        return Array.from(data).map((rank) => {
+            if (rank.user) {
+                return {
+                    username: rank.user.username,
+                    score: rank.time,
+                    currentUser: rank.current,
+                };
+            }
+            return {
+                username: rank.username,
+                score: rank['multi_wins'],
+                currentUser: rank.current
+            }
+        });
+    }
+
+    const findMyself = () => {
+        const index = fullData.findIndex((rank) => rank.current);
+
+        console.log(index);
+
+        if (index !== -1) {
+            setNumPage(Math.floor((index + 1) / 5 + 1));
+        }
+    }
+
     const getData = async (mode, worldNum = 0, levelNum = 0, page = 0) => {
         setIsLoading(true);
         if (mode === 'indiv') {
             if (page === 0) {
-                const responseFromApi = await Http.fetchData(
-                    {url: `/api/v1/rankings/single?world_num=${worldNum}&level_num=${levelNum}`}
-                );
+                let configObj = {url: `/api/v1/rankings/single?world_num=${worldNum}&level_num=${levelNum}`};
+                if (localStorage.getItem('apitoken')) {
+                    configObj = {
+                        url: `/api/v1/rankings/single/current?world_num=${worldNum}&level_num=${levelNum}`,
+                        token: localStorage.getItem('apitoken'),
+                    };
+                }
+                const responseFromApi = await Http.fetchData(configObj);
                 if (!responseFromApi.status) {
                     // FAILED
                 } else {
@@ -52,22 +92,37 @@ function Rankings() {
                         pagesArr.push(i);
                     }
 
+                    setFullData(responseFromApi.data.rankings);
                     setNumsOfPages(pagesArr);
 
                 }
             } else {
-                const responseFromApi = await Http.fetchData(
-                    {url: `/api/v1/rankings/single?world_num=${worldNum}&level_num=${levelNum}&page=${page}` }
-                );
+                let configObj = {url: `/api/v1/rankings/single?world_num=${worldNum}&level_num=${levelNum}&page=${page}`};
+                if (localStorage.getItem('apitoken')) {
+                    configObj = {
+                        url: `/api/v1/rankings/single/current?world_num=${worldNum}&level_num=${levelNum}&page=${page}`,
+                        token: localStorage.getItem('apitoken'),
+                    };
+                }
+                const responseFromApi = await Http.fetchData(configObj);
                 if (!responseFromApi.status) {
                     // FAILED
                 } else {
-                    setData(responseFromApi.data);
+                    console.log(responseFromApi.data);
+                    setData(responseFromApi.data.rankings);
                 }
             }
         } else {
             if (page === 0) {
-                const responseFromApi = await Http.fetchData({url: '/api/v1/rankings/multi'});
+                let configObj = {url: `/api/v1/rankings/multi`};
+
+                if (localStorage.getItem('apitoken')) {
+                    configObj = {
+                        url: `/api/v1/rankings/multi/current`,
+                        token: localStorage.getItem('apitoken'),
+                    }
+                }
+                const responseFromApi = await Http.fetchData(configObj);
                 if (!responseFromApi.status) {
                     // FAILED
                 } else {
@@ -76,16 +131,25 @@ function Rankings() {
                         pagesArr.push(i);
                     }
 
+                    setFullData(responseFromApi.data.rankings);
                     setNumsOfPages(pagesArr);
                 }
             } else {
-                const responseFromApi = await Http.fetchData(
-                    {url: `/api/v1/rankings/multi?page=${page}`}
-                );
+                let configObj = {url: `/api/v1/rankings/multi?page=${page}`};
+
+                if (localStorage.getItem('apitoken')) {
+                    configObj = {
+                        url: `/api/v1/rankings/multi/current?page=${page}`,
+                        token: localStorage.getItem('apitoken'),
+                    }
+                }
+
+                const responseFromApi = await Http.fetchData(configObj);
                 if (!responseFromApi.status) {
                     // FAILED
                 } else {
-                    setData(responseFromApi.data);
+                    console.log(responseFromApi.data);
+                    setData(responseFromApi.data.rankings);
                 }
             }
         }
@@ -93,13 +157,29 @@ function Rankings() {
     }
 
     useEffect(async () => {
-        await getData('indiv', 1, 1);
-        await getData('indiv', 1, 1, 1);
+        if (firstUpdate.current) {
+            await getData(mode, worldNum, levelNum);
+            await getData(mode, worldNum, levelNum, numPage);
+            firstUpdate.current = false;
+        }
+
     }, []);
 
-    useEffect(() => {
-        console.log(numsOfPages)
-    },[numsOfPages])
+    useEffect(async () => {
+        if (!firstUpdate.current) {
+            await getData(mode, worldNum, levelNum);
+            if (numPage !== 0) {
+                await getData(mode, worldNum, levelNum, numPage);
+            }
+        }
+    }, [mode, worldNum, levelNum]);
+
+    useEffect(async () => {
+        if (!firstUpdate.current) {
+            await getData(mode, worldNum, levelNum, numPage);
+        }
+    },[numPage]);
+
 
     return (
         <>
@@ -119,16 +199,17 @@ function Rankings() {
                     <option value={3}>Level 3</option>
                     <option value={4}>Level 4</option>
                 </Select>
-                <Button type="submit">Refresh</Button>
+                <Button disabled={isLoading} type="submit">Refresh</Button>
             </Form>
             <div className="container">
                 <LoadingSpinner show={isLoading} />
                 {
                     !isLoading ? (
-                        <RankList mode="indiv">
-                            <RankItem rank="1" player="Hola" score="50" />
-                            <RankItem rank="2" player="Hola" score="49" />
-                            <RankItem rank="3" player="Hola" score="48" />
+                        <RankList mode={mode}>
+                            {parseRankings().map((ranking, i) => (
+                                <RankItem rank={(i + 1) + numPage * 5 - 5} player={ranking.username}
+                                          score={ranking.score} current={ranking.currentUser}/>
+                            ))}
                         </RankList>
                     ) : null
                 }
@@ -137,8 +218,8 @@ function Rankings() {
                 !isLoading ? (
                     <div className="horizontal-group">
                         <span>Page: </span>
-                        {getNumsOfPages().map((pageShown) => <a onClick={changePage}>{pageShown}</a>)}
-                        <a>Find myself</a>
+                        {getNumsOfPages().map((pageShown) => <a className={pageShown === numPage ? 'highlight' : ''} onClick={changePage}>{pageShown}</a>)}
+                        <a onClick={findMyself}>Find myself</a>
                     </div>
                 ) : null
             }

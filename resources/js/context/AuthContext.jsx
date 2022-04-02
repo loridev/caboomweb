@@ -16,6 +16,7 @@ export function AuthContextProvider(props) {
 
     const getToken = () => {
         try {
+            console.log('hola');
             setToken(localStorage.getItem('apitoken'));
         } catch (err) {
             console.log('error retrieving token');
@@ -25,11 +26,12 @@ export function AuthContextProvider(props) {
 
     useEffect(() => {
         getToken();
-    }, [token]);
+    }, []);
 
     const context = {
         token,
         isAdmin,
+        getToken,
         setToken,
         setIsAdmin
     };
