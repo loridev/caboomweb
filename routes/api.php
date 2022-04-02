@@ -42,8 +42,4 @@ Route::get('/v1/rankings/multi', [RankingController::class, 'getMulti']);
 
 Route::get('/v1/rankings/multi/current', [RankingController::class, 'getMulti'])->middleware('auth:sanctum');
 
-// Route::middleware(['middleware' => 'auth:sanctum'], function () {
-//     Route::get('/v1/users/current', [UserController::class, 'currentUser']);
-// });
-
 Route::middleware('auth:sanctum')->get('/v1/users/current', [UserController::class, 'currentUser']);
