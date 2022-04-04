@@ -5735,20 +5735,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_Background_styles_Background_module_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Background/styles/Background.module.css */ "./resources/js/components/Background/styles/Background.module.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 function Video(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("video", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("video", {
     autoPlay: "autoplay",
     muted: "muted",
     loop: "loop",
-    className: _components_Background_styles_Background_module_css__WEBPACK_IMPORTED_MODULE_0__["default"].background,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("source", {
-      src: props.src,
+    className: props.className,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("source", {
+      src: "/videos/mapacheMobile.mp4",
+      type: "video/mp4",
+      media: "all and (max-width: 648px)"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("source", {
+      src: "/videos/mapache.mp4",
       type: "video/mp4"
     }), props.children]
   });
@@ -5952,8 +5954,7 @@ function Background(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: _styles_Background_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].container,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_UI_Video_Video__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      className: _styles_Background_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].video,
-      src: props.src
+      className: "".concat(_styles_Background_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].video, " ").concat(_styles_Background_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].background)
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: _styles_Background_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].containerOver,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
@@ -6156,15 +6157,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_Background_Background__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Background/Background */ "./resources/js/components/Background/Background.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _components_Background_Background__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Background/Background */ "./resources/js/components/Background/Background.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 function Home() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_Background_Background__WEBPACK_IMPORTED_MODULE_0__["default"], {
+  /*
+  const [src, setSrc] = useState('/videos/mapache.mp4');
+   const mediaQuery = window.matchMedia('(min-width: 648px)');
+   const handleWindowChange = (ev) => {
+      debugger
+      if (ev.matches) {
+          console.log('grande');
+          setSrc('/videos/mapache.mp4');
+      } else {
+          console.log('pequeño');
+          setSrc('/videos/mapacheMobile.mp4');
+      }
+      console.log(src);
+  }
+  
+  useEffect(() => {
+      mediaQuery.addEventListener('change', handleWindowChange);
+      handleWindowChange(mediaQuery);
+  }, [src]);
+  */
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Background_Background__WEBPACK_IMPORTED_MODULE_1__["default"], {
     text: "CARLOS EL BOMBAS",
-    src: "/videos/mapache.mp4",
     buttonText: "Try it Now"
   });
 }
@@ -12119,7 +12141,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".rjT-1tKHBpXYFAQRzhA8Lg\\=\\= {\r\n    display: inline-block;\r\n    border-radius: 4px;\r\n    background-color: var(--main-color);\r\n    border: none;\r\n    color: #FFFFFF;\r\n    text-align: center;\r\n    font-size: 28px;\r\n    padding: 20px;\r\n    width: 200px;\r\n    transition: all 0.5s;\r\n    cursor: pointer;\r\n    margin: 5px;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span {\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    position: relative;\r\n    transition: 0.5s;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span:after {\r\n    content: '\\00bb';\r\n    position: absolute;\r\n    opacity: 0;\r\n    top: 0;\r\n    right: -20px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span {\r\n    padding-right: 25px;\r\n}\r\n\r\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span:after {\r\n    opacity: 1;\r\n    right: 0;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".rjT-1tKHBpXYFAQRzhA8Lg\\=\\= {\n    display: inline-block;\n    border-radius: 4px;\n    background-color: var(--main-color);\n    border: none;\n    color: #FFFFFF;\n    text-align: center;\n    font-size: 28px;\n    padding: 20px;\n    width: 200px;\n    transition: all 0.5s;\n    cursor: pointer;\n    margin: 5px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span {\n    cursor: pointer;\n    display: inline-block;\n    position: relative;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\= span:after {\n    content: '\\00bb';\n    position: absolute;\n    opacity: 0;\n    top: 0;\n    right: -20px;\n    transition: 0.5s;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span {\n    padding-right: 25px;\n}\n\n.rjT-1tKHBpXYFAQRzhA8Lg\\=\\=:hover span:after {\n    opacity: 1;\n    right: 0;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"button": "rjT-1tKHBpXYFAQRzhA8Lg=="
@@ -12289,7 +12311,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._7sovfdBZAuvxyhw536x4vw\\=\\= {\r\n    background-position: center center;\r\n\tbackground-size: cover;\r\n\tbackground-repeat: no-repeat;\r\n    height: 91vh;\r\n    width: 100vw;\r\n    background-color: rgba(0,0,0,0.8);\r\n    filter:brightness(0.5);\r\n}\r\n\r\n.wsj50hmnPQux6DiFdElPIA\\=\\= {\r\n    position: relative;\r\n    display: flex;\r\n}\r\n\r\n.ZI5wjEAtwa90YI\\+Ly1IkKQ\\=\\= {\r\n    position:relative;\r\n    z-index:0;\r\n}\r\n\r\n.Z9ND8itfwqi6x9OsoznmHg\\=\\= {\r\n    position:absolute;\r\n    text-align: center;\r\n    z-index:1;\r\n    width: 100vw;\r\n    align-self: center;\r\n}\r\n\r\n.HBlzEyDO09Ary6iZYKxQLw\\=\\= {\r\n    font-size: 7rem;\r\n    margin-bottom: 10vh;\r\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._7sovfdBZAuvxyhw536x4vw\\=\\= {\n    background-position: center center;\n\tbackground-size: cover;\n\tbackground-repeat: no-repeat;\n    height: 91vh;\n    width: 100vw;\n    background-color: rgba(0,0,0,0.8);\n    filter:brightness(0.5);\n}\n\n.wsj50hmnPQux6DiFdElPIA\\=\\= {\n    position: relative;\n    display: flex;\n}\n\n.ZI5wjEAtwa90YI\\+Ly1IkKQ\\=\\= {\n    position:relative;\n    z-index:0;\n}\n\n.Z9ND8itfwqi6x9OsoznmHg\\=\\= {\n    position:absolute;\n    text-align: center;\n    z-index:1;\n    width: 100vw;\n    align-self: center;\n}\n\n.HBlzEyDO09Ary6iZYKxQLw\\=\\= {\n    font-size: 6rem;\n    margin-bottom: 10vh;\n}\n\n@media (max-width: 648px) {\n    \n}\n\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"background": "_7sovfdBZAuvxyhw536x4vw==",

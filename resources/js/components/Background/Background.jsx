@@ -5,7 +5,7 @@ import clases from './styles/Background.module.css';
 function Background(props) {
     return (
         <div className={clases.container}>
-            <Video className={clases.video} src={props.src} />
+            <Video className={`${clases.video} ${clases.background}`}/>
             <div className={clases.containerOver}>
                 <h1 className={clases.text}>{props.text}</h1>
                 <Button>{props.buttonText}</Button>
