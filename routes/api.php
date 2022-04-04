@@ -3,8 +3,6 @@
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\UserController;
-use App\Http\Middleware\_OptionalAuth;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
