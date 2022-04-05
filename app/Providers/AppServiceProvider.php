@@ -2,11 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\PersonalAccessToken;
-use App\Models\User;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\UrlGenerator;
-use Laravel\Sanctum\Sanctum;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +29,5 @@ class AppServiceProvider extends ServiceProvider
         if (env('REDIRECT_HTTPS')) {
             $url->formatScheme('https://');
         }
-        Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
     }
 }
